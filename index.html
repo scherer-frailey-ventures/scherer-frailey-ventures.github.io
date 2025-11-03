@@ -214,6 +214,18 @@
         @keyframes spin {
             to { transform: rotate(360deg); }
         }
+
+        @media (prefers-reduced-motion: reduce) {
+            .spinner {
+                animation: none;
+                border-top-color: #667eea;
+                opacity: 0.6;
+            }
+        }
+
+        .footer-copyright {
+            margin-top: 10px;
+        }
     </style>
 </head>
 <body>
@@ -272,9 +284,9 @@
         </a>
 
         <div class="footer">
-            <div class="spinner"></div>
+            <div class="spinner" role="status" aria-label="Loading"></div>
             <p>Site launching soon...</p>
-            <p style="margin-top: 10px;">© 2024 Scherer Frailey Ventures. All rights reserved.</p>
+            <p class="footer-copyright">© 2024 Scherer Frailey Ventures. All rights reserved.</p>
         </div>
     </div>
 </body>
