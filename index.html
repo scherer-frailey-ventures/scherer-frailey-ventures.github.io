@@ -3,42 +3,152 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Scherer Frailey Ventures - Investment and Venture Capital">
-    <meta name="keywords" content="venture capital, investment, startups, technology">
-    <title>Scherer Frailey Ventures</title>
+    <meta name="description" content="A family entrepreneurship collaborative fostering innovation, accountability, and mutual support. Discover how formalized family collaboration can empower your ventures.">
+    <meta name="keywords" content="family entrepreneurship, collaboration, accountability, ventures, innovation, team support, family business">
+    <meta name="author" content="Scherer-Frailey Ventures">
+    <title>Scherer-Frailey Ventures | Family Entrepreneurship Collaborative</title>
     <style>
+        :root {
+            --primary: #667eea;
+            --primary-dark: #5568d3;
+            --secondary: #764ba2;
+            --accent: #f57c00;
+            --success: #388e3c;
+            --text-dark: #1a202c;
+            --text-medium: #4a5568;
+            --text-light: #718096;
+            --bg-light: #f7fafc;
+            --bg-white: #ffffff;
+            --border: #e2e8f0;
+            --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --gradient-3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            --shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
+            --shadow-md: 0 4px 6px rgba(0,0,0,0.07);
+            --shadow-lg: 0 10px 25px rgba(0,0,0,0.1);
+            --shadow-xl: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            box-shadow: var(--shadow-md);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-medium);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-1);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 20px;
-            color: #333;
+            background: var(--gradient-1);
+            position: relative;
+            overflow: hidden;
+            padding: 6rem 2rem 4rem;
         }
 
-        .container {
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            max-width: 800px;
-            width: 100%;
-            padding: 60px 40px;
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" fill="none"/><circle cx="50" cy="50" r="1" fill="rgba(255,255,255,0.1)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            max-width: 1000px;
             text-align: center;
-            animation: fadeIn 1s ease-in;
+            color: white;
+            position: relative;
+            z-index: 1;
+            animation: fadeInUp 1s ease;
         }
 
-        @keyframes fadeIn {
+        @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(20px);
+                transform: translateY(30px);
             }
             to {
                 opacity: 1;
@@ -46,236 +156,848 @@
             }
         }
 
-        .logo {
-            font-size: 2.5rem;
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.25rem, 3vw, 1.75rem);
+            margin-bottom: 3rem;
+            opacity: 0.95;
+            font-weight: 300;
+            line-height: 1.4;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: white;
+            color: var(--primary);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 2px solid white;
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: var(--primary);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 6rem 2rem;
+            position: relative;
+        }
+
+        .section-alt {
+            background: var(--bg-light);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+            animation: fadeIn 0.8s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .section-badge {
+            display: inline-block;
+            background: var(--gradient-1);
+            color: white;
+            padding: 0.4rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3rem);
             font-weight: 700;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .section-subtitle {
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Story Section */
+        .story-content {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.125rem;
+            line-height: 1.8;
+            color: var(--text-medium);
+        }
+
+        .story-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .story-highlight {
+            background: linear-gradient(120deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+            padding: 2rem;
+            border-radius: 12px;
+            border-left: 4px solid var(--primary);
+            margin: 2rem 0;
+        }
+
+        /* Grid Layouts */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .grid-4 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        /* Card Styles */
+        .card {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+            border: 1px solid var(--border);
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .card-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .card-text {
+            color: var(--text-medium);
+            line-height: 1.7;
+        }
+
+        /* Value Cards */
+        .value-card {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .value-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--gradient-1);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .value-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        /* Stats Section */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            text-align: center;
+            margin: 4rem 0;
+        }
+
+        .stat-item {
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 800;
+            background: var(--gradient-1);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            margin-bottom: 20px;
-            letter-spacing: -1px;
+            display: block;
+            margin-bottom: 0.5rem;
         }
 
-        .construction-badge {
-            display: inline-block;
-            background: #fbbf24;
-            color: #78350f;
-            padding: 8px 20px;
-            border-radius: 20px;
-            font-size: 0.875rem;
-            font-weight: 600;
-            margin-bottom: 30px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        h1 {
-            font-size: 2rem;
-            color: #1f2937;
-            margin-bottom: 20px;
-            font-weight: 700;
-        }
-
-        .tagline {
-            font-size: 1.25rem;
-            color: #6b7280;
-            margin-bottom: 40px;
-            line-height: 1.6;
-        }
-
-        .divider {
-            width: 60px;
-            height: 4px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            margin: 30px auto;
-            border-radius: 2px;
-        }
-
-        .content {
-            text-align: left;
-            margin: 40px 0;
-        }
-
-        .content h2 {
-            font-size: 1.5rem;
-            color: #1f2937;
-            margin-bottom: 15px;
-            font-weight: 600;
-        }
-
-        .content p {
-            color: #4b5563;
-            line-height: 1.8;
-            margin-bottom: 15px;
-        }
-
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin: 30px 0;
-        }
-
-        .feature {
-            background: #f9fafb;
-            padding: 25px;
-            border-radius: 12px;
-            border: 2px solid #e5e7eb;
-            transition: all 0.3s ease;
-        }
-
-        .feature:hover {
-            border-color: #667eea;
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.1);
-        }
-
-        .feature-icon {
-            font-size: 2rem;
-            margin-bottom: 10px;
-        }
-
-        .feature h3 {
+        .stat-label {
             font-size: 1.125rem;
-            color: #1f2937;
-            margin-bottom: 8px;
+            color: var(--text-medium);
             font-weight: 600;
         }
 
-        .feature p {
-            font-size: 0.9rem;
-            color: #6b7280;
-            margin: 0;
+        /* Ventures Section */
+        .venture-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+            border: 1px solid var(--border);
         }
 
-        .footer {
-            margin-top: 40px;
-            padding-top: 30px;
-            border-top: 1px solid #e5e7eb;
-            color: #9ca3af;
-            font-size: 0.875rem;
+        .venture-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
         }
 
-        .github-link {
-            display: inline-flex;
+        .venture-header {
+            padding: 2rem;
+            background: var(--gradient-1);
+            color: white;
+        }
+
+        .venture-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .venture-owner {
+            opacity: 0.9;
+            font-size: 1rem;
+        }
+
+        .venture-body {
+            padding: 2rem;
+        }
+
+        .venture-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .venture-link {
+            display: flex;
             align-items: center;
-            gap: 8px;
-            color: #667eea;
+            gap: 0.75rem;
+            color: var(--primary);
             text-decoration: none;
             font-weight: 500;
             transition: all 0.3s ease;
-            margin-top: 20px;
+            padding: 0.5rem;
+            border-radius: 8px;
         }
 
-        .github-link:hover {
-            color: #764ba2;
-            gap: 12px;
+        .venture-link:hover {
+            background: var(--bg-light);
+            gap: 1rem;
         }
 
-        .github-icon {
-            width: 20px;
-            height: 20px;
+        .venture-link-icon {
+            font-size: 1.25rem;
         }
 
-        @media (max-width: 640px) {
-            .container {
-                padding: 40px 25px;
+        /* CTA Section */
+        .cta-section {
+            background: var(--gradient-1);
+            color: white;
+            text-align: center;
+            padding: 6rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: pulse 15s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-text {
+            font-size: clamp(1.125rem, 2vw, 1.5rem);
+            margin-bottom: 2.5rem;
+            opacity: 0.95;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--text-dark);
+            color: white;
+            padding: 3rem 2rem 2rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            line-height: 1.8;
+            display: block;
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.875rem;
+        }
+
+        /* Mobile Styles */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
             }
 
-            .logo {
-                font-size: 2rem;
+            section {
+                padding: 4rem 1.5rem;
             }
 
-            h1 {
-                font-size: 1.5rem;
+            .hero {
+                padding: 5rem 1.5rem 3rem;
             }
 
-            .tagline {
-                font-size: 1rem;
+            .stats {
+                gap: 2rem;
             }
 
-            .features {
-                grid-template-columns: 1fr;
+            .stat-number {
+                font-size: 2.5rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 300px;
             }
         }
 
-        .spinner {
-            display: inline-block;
-            width: 40px;
-            height: 40px;
-            border: 4px solid #e5e7eb;
-            border-top-color: #667eea;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            margin: 20px auto;
+        /* Animations on Scroll */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
         }
 
-        @keyframes spin {
-            to { transform: rotate(360deg); }
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="logo">Scherer Frailey Ventures</div>
-        
-        <div class="construction-badge">🚧 Under Construction</div>
-        
-        <h1>Building Something Great</h1>
-        
-        <p class="tagline">
-            We're currently working on our new website. Check back soon for updates!
-        </p>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">🚀 Scherer-Frailey Ventures</div>
+            <ul class="nav-links">
+                <li><a href="#story">Our Story</a></li>
+                <li><a href="#how-it-works">How It Works</a></li>
+                <li><a href="#impact">Impact</a></li>
+                <li><a href="#ventures">Ventures</a></li>
+                <li><a href="#values">Values</a></li>
+            </ul>
+        </div>
+    </nav>
 
-        <div class="divider"></div>
-
-        <div class="content">
-            <h2>About Us</h2>
-            <p>
-                Scherer Frailey Ventures is dedicated to identifying and supporting innovative 
-                ventures that are shaping the future. We focus on strategic investments that 
-                drive meaningful growth and lasting impact.
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">🏠 Family · 🤝 Collaboration · 🚀 Innovation</div>
+            <h1>Your Family Could Be Your Greatest Team</h1>
+            <p class="hero-subtitle">
+                Discover how a formalized family collaboration transformed independent entrepreneurs 
+                into an unstoppable support network—and how you can do it too.
             </p>
-            
-            <p>
-                Our approach combines deep industry expertise with a commitment to fostering 
-                long-term partnerships with exceptional entrepreneurs and teams.
+            <div class="cta-buttons">
+                <a href="#story" class="btn btn-primary">See How We Did It</a>
+                <a href="#impact" class="btn btn-secondary">View Our Impact</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Story Section -->
+    <section id="story">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">📖 Our Journey</span>
+                <h2 class="section-title">From Isolated to Inspired</h2>
+                <p class="section-subtitle">
+                    The story of how family entrepreneurs came together to build something extraordinary
+                </p>
+            </div>
+            <div class="story-content">
+                <p>
+                    🎯 <strong>Imagine this:</strong> You're a talented entrepreneur with ambitious dreams. 
+                    You've worked with amazing teams before, but now you're on your own. The isolation creeps in. 
+                    The accountability fades. The momentum slows.
+                </p>
+                <p>
+                    We felt that too. As family members pursuing different ventures, we each had unique skills, 
+                    experiences, and challenges. But we were missing something fundamental—<strong>the power of 
+                    collaboration</strong>.
+                </p>
+                <div class="story-highlight">
+                    <p style="margin: 0;">
+                        💡 <strong>The breakthrough moment:</strong> What if we formalized our support for each other? 
+                        What if we created structured accountability, regular demonstrations, and shared expertise—all 
+                        while maintaining our independent ventures?
+                    </p>
+                </div>
+                <p>
+                    In 2020, Scherer-Frailey Ventures was born. Not as a traditional family business, but as 
+                    something better—a <strong>family entrepreneurship collaborative</strong>. A framework where 
+                    individual ventures thrive through collective wisdom, mutual accountability, and genuine support.
+                </p>
+                <p>
+                    📈 The results? Weekly sync sessions that keep us on track. Monthly demo days that spark 
+                    innovation. Cross-domain skill sharing that multiplies our capabilities. And most importantly, 
+                    a support network that turns challenges into opportunities.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section id="how-it-works" class="section-alt">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">⚙️ The Framework</span>
+                <h2 class="section-title">How It Works</h2>
+                <p class="section-subtitle">
+                    A simple yet powerful structure that keeps everyone aligned and accountable
+                </p>
+            </div>
+            <div class="grid-4">
+                <div class="card animate-on-scroll">
+                    <span class="card-icon">📅</span>
+                    <h3 class="card-title">Weekly Syncs</h3>
+                    <p class="card-text">
+                        Regular touchpoints for progress updates, obstacle discussions, and planning. 
+                        Stay accountable and connected every week.
+                    </p>
+                </div>
+                <div class="card animate-on-scroll">
+                    <span class="card-icon">📊</span>
+                    <h3 class="card-title">Monthly Demos</h3>
+                    <p class="card-text">
+                        In-person gatherings to showcase achievements, validate ideas, and celebrate wins. 
+                        Show, don't just tell.
+                    </p>
+                </div>
+                <div class="card animate-on-scroll">
+                    <span class="card-icon">🔄</span>
+                    <h3 class="card-title">Skill Sharing</h3>
+                    <p class="card-text">
+                        Leverage diverse backgrounds for cross-pollination of expertise across 
+                        domains and industries.
+                    </p>
+                </div>
+                <div class="card animate-on-scroll">
+                    <span class="card-icon">📚</span>
+                    <h3 class="card-title">Continuous Learning</h3>
+                    <p class="card-text">
+                        Support each other's growth through shared resources, experiences, and 
+                        constructive feedback.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact/Stats Section -->
+    <section id="impact">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">📈 Our Impact</span>
+                <h2 class="section-title">The Power of Collaboration</h2>
+                <p class="section-subtitle">
+                    Five years of consistent support, accountability, and growth
+                </p>
+            </div>
+            <div class="stats">
+                <div class="stat-item">
+                    <span class="stat-number">5+</span>
+                    <span class="stat-label">Years Running</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">260+</span>
+                    <span class="stat-label">Weekly Syncs</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">60+</span>
+                    <span class="stat-label">Demo Sessions</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">100%</span>
+                    <span class="stat-label">Family Unity</span>
+                </div>
+            </div>
+            <div class="grid-3" style="margin-top: 4rem;">
+                <div class="card animate-on-scroll">
+                    <span class="card-icon">🎯</span>
+                    <h3 class="card-title">Accountability & Progress</h3>
+                    <p class="card-text">
+                        Regular check-ins and progress reviews keep everyone motivated and on track 
+                        with entrepreneurial goals—no more working in isolation.
+                    </p>
+                </div>
+                <div class="card animate-on-scroll">
+                    <span class="card-icon">💡</span>
+                    <h3 class="card-title">Innovation Showcase</h3>
+                    <p class="card-text">
+                        Demonstration sessions provide real feedback, validate ideas quickly, and 
+                        create celebration moments for achievements.
+                    </p>
+                </div>
+                <div class="card animate-on-scroll">
+                    <span class="card-icon">📈</span>
+                    <h3 class="card-title">Collective Growth</h3>
+                    <p class="card-text">
+                        Individual ventures thrive through shared knowledge, cross-domain expertise, 
+                        and genuine mutual support.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ventures Section -->
+    <section id="ventures" class="section-alt">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">🚀 Active Ventures</span>
+                <h2 class="section-title">Our Members & Their Ventures</h2>
+                <p class="section-subtitle">
+                    Independent entrepreneurs supported by collaborative family strength
+                </p>
+            </div>
+            <div class="grid-2">
+                <div class="venture-card animate-on-scroll">
+                    <div class="venture-header" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                        <div class="venture-name">Derek Scherer</div>
+                        <div class="venture-owner">👨‍💼 Entrepreneur & Developer</div>
+                    </div>
+                    <div class="venture-body">
+                        <div class="venture-links">
+                            <a href="https://www.derekscherer.com/" target="_blank" rel="noopener noreferrer" class="venture-link">
+                                <span class="venture-link-icon">🌐</span>
+                                <span>derekscherer.com</span>
+                            </a>
+                            <a href="https://cognichine.com/" target="_blank" rel="noopener noreferrer" class="venture-link">
+                                <span class="venture-link-icon">🧠</span>
+                                <span>Cognichine</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="venture-card animate-on-scroll">
+                    <div class="venture-header" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                        <div class="venture-name">Julia Scherer</div>
+                        <div class="venture-owner">👩‍💼 Creative Entrepreneur</div>
+                    </div>
+                    <div class="venture-body">
+                        <div class="venture-links">
+                            <a href="https://juliascherer.com/" target="_blank" rel="noopener noreferrer" class="venture-link">
+                                <span class="venture-link-icon">🌐</span>
+                                <span>juliascherer.com</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="venture-card animate-on-scroll">
+                    <div class="venture-header" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                        <div class="venture-name">Ed Scherer</div>
+                        <div class="venture-owner">�‍💻 Entrepreneur & Innovator</div>
+                    </div>
+                    <div class="venture-body">
+                        <div class="venture-links">
+                            <a href="https://www.ed.scherer.name" target="_blank" rel="noopener noreferrer" class="venture-link">
+                                <span class="venture-link-icon">🌐</span>
+                                <span>ed.scherer.name</span>
+                            </a>
+                            <a href="https://www.protizmo.com/" target="_blank" rel="noopener noreferrer" class="venture-link">
+                                <span class="venture-link-icon">🛠️</span>
+                                <span>Protizmo</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="venture-card animate-on-scroll">
+                    <div class="venture-header" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">
+                        <div class="venture-name">Jason Frailey</div>
+                        <div class="venture-owner">👨‍💻 Content Creator & Developer</div>
+                    </div>
+                    <div class="venture-body">
+                        <div class="venture-links">
+                            <a href="https://www.jasonfrailey.com/" target="_blank" rel="noopener noreferrer" class="venture-link">
+                                <span class="venture-link-icon">🌐</span>
+                                <span>jasonfrailey.com</span>
+                            </a>
+                            <a href="https://www.twitch.tv/jasonfrailey" target="_blank" rel="noopener noreferrer" class="venture-link">
+                                <span class="venture-link-icon">📺</span>
+                                <span>Twitch Channel</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section id="values">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">🌟 What Drives Us</span>
+                <h2 class="section-title">Our Core Values</h2>
+                <p class="section-subtitle">
+                    The principles that make our collaborative family framework work
+                </p>
+            </div>
+            <div class="grid-2">
+                <div class="card value-card animate-on-scroll">
+                    <span class="card-icon">🏠</span>
+                    <h3 class="card-title">Family First</h3>
+                    <p class="card-text">
+                        Building strong relationships while pursuing professional growth. Our family 
+                        bonds are the foundation of our success, not an obstacle to it.
+                    </p>
+                </div>
+                <div class="card value-card animate-on-scroll">
+                    <span class="card-icon">🔍</span>
+                    <h3 class="card-title">Transparency</h3>
+                    <p class="card-text">
+                        Open communication about challenges, successes, and lessons learned. We create 
+                        a safe space for honest dialogue and constructive feedback.
+                    </p>
+                </div>
+                <div class="card value-card animate-on-scroll">
+                    <span class="card-icon">🤲</span>
+                    <h3 class="card-title">Mutual Support</h3>
+                    <p class="card-text">
+                        Being available to help each other overcome obstacles and celebrate wins. Your 
+                        success is our success, and we're here for the journey.
+                    </p>
+                </div>
+                <div class="card value-card animate-on-scroll">
+                    <span class="card-icon">⚡</span>
+                    <h3 class="card-title">Continuous Improvement</h3>
+                    <p class="card-text">
+                        Always looking for ways to refine our processes and outcomes. We embrace 
+                        learning, adapt quickly, and constantly evolve.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2 class="cta-title">✨ You Can Build This Too</h2>
+            <p class="cta-text">
+                Your extended family might be the missing piece in your entrepreneurial journey. 
+                We've shown that with the right framework, family collaboration becomes your competitive advantage.
             </p>
-        </div>
-
-        <div class="features">
-            <div class="feature">
-                <div class="feature-icon">🎯</div>
-                <h3>Strategic Focus</h3>
-                <p>Targeted investments in high-potential ventures</p>
-            </div>
-            
-            <div class="feature">
-                <div class="feature-icon">🤝</div>
-                <h3>Partnership</h3>
-                <p>Building lasting relationships with founders</p>
-            </div>
-            
-            <div class="feature">
-                <div class="feature-icon">💡</div>
-                <h3>Innovation</h3>
-                <p>Supporting transformative ideas and technologies</p>
+            <div class="cta-buttons">
+                <a href="https://github.com/scherer-frailey-ventures" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                    View on GitHub
+                </a>
             </div>
         </div>
+    </section>
 
-        <a href="https://github.com/scherer-frailey-ventures" class="github-link" target="_blank" rel="noopener noreferrer">
-            <svg class="github-icon" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-            </svg>
-            Visit our GitHub Organization
-        </a>
-
-        <div class="footer">
-            <div class="spinner"></div>
-            <p>Site launching soon...</p>
-            <p style="margin-top: 10px;">© 2024 Scherer Frailey Ventures. All rights reserved.</p>
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>🚀 Scherer-Frailey Ventures</h3>
+                <p>
+                    A family entrepreneurship collaborative fostering innovation, accountability, 
+                    and mutual support since 2020.
+                </p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="#story">Our Story</a>
+                <a href="#how-it-works">How It Works</a>
+                <a href="#impact">Impact</a>
+                <a href="#ventures">Ventures</a>
+                <a href="#values">Values</a>
+            </div>
+            <div class="footer-section">
+                <h3>Connect</h3>
+                <a href="https://github.com/scherer-frailey-ventures" target="_blank" rel="noopener noreferrer">GitHub Organization</a>
+                <p style="margin-top: 1rem;">
+                    Building the future through family collaboration.
+                </p>
+            </div>
         </div>
-    </div>
+        <div class="footer-bottom">
+            <p>© 2025 Scherer-Frailey Ventures. Founded 2020 · Empowering entrepreneurship through family collaboration</p>
+        </div>
+    </footer>
+
+    <script>
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Animate on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const navHeight = navbar.offsetHeight;
+                    const targetPosition = target.offsetTop - navHeight;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
