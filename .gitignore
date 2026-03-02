@@ -1,0 +1,24 @@
+# Editor and IDE
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Generated distribution files
+dist/
+
+# Temporary files, log files, and backup files
+temp/
+*.tmp
+*.log
+*.bak
+
+# Chat discussions (transformed raw chats)
+.github/discussions/
+
+# PlantUML stuff
+.plantuml-exports/
+**/exported-diagrams/*.png

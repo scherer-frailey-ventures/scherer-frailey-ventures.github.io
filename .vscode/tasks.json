@@ -1,0 +1,22 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Build chat discussions",
+			"type": "shell",
+			"command": "copilot-chat-transformer",
+			"args": [
+				".github\\chats\\*.ghc-chat.json",
+				"--output",
+				".github\\discussions\\",
+        "--format",
+        "'html,md'"
+			],
+			"group": {
+				"kind": "build",
+				"isDefault": false
+			},
+			"problemMatcher": []
+		}
+	]
+}
