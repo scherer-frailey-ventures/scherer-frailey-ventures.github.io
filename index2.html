@@ -330,6 +330,74 @@
             margin: 0 auto;
         }
 
+        /* Mission Section */
+        .mission-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .mission-card {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border);
+            border-top: 4px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .mission-card:nth-child(1) { border-top-color: #667eea; }
+        .mission-card:nth-child(2) { border-top-color: #764ba2; }
+        .mission-card:nth-child(3) { border-top-color: #f57c00; }
+
+        .mission-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .mission-source {
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-light);
+            margin-bottom: 0.75rem;
+        }
+
+        .mission-statement {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            line-height: 1.4;
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        .mission-context {
+            font-size: 0.95rem;
+            color: var(--text-medium);
+            line-height: 1.6;
+        }
+
+        .mission-in-progress {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 1.5rem;
+            background: linear-gradient(120deg, rgba(102,126,234,0.08) 0%, rgba(118,75,162,0.08) 100%);
+            border-radius: 12px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .mission-in-progress p {
+            color: var(--text-medium);
+            font-size: 0.975rem;
+        }
+
         /* Story Section */
         .story-content {
             max-width: 800px;
@@ -349,6 +417,27 @@
             border-radius: 12px;
             border-left: 4px solid var(--primary);
             margin: 2rem 0;
+        }
+
+        .story-quote {
+            background: var(--bg-light);
+            padding: 1.75rem 2rem;
+            border-radius: 12px;
+            border-left: 4px solid var(--accent);
+            margin: 2rem 0;
+            font-style: italic;
+        }
+
+        .story-quote p {
+            font-size: 1.15rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+        }
+
+        .story-quote cite {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            font-style: normal;
         }
 
         /* Grid Layouts */
@@ -504,6 +593,30 @@
 
         .venture-body {
             padding: 2rem;
+        }
+
+        .venture-quote {
+            font-style: italic;
+            font-size: 1rem;
+            color: var(--text-dark);
+            border-left: 3px solid var(--accent);
+            padding-left: 1rem;
+            margin: 0 0 1.25rem;
+            line-height: 1.5;
+        }
+
+        .venture-bio-label {
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--primary);
+            background: var(--bg-light);
+            padding: 0.15rem 0.5rem;
+            border-radius: 6px;
+            margin-right: 0.5rem;
+            vertical-align: middle;
         }
 
         .venture-bio {
@@ -733,6 +846,7 @@
         <div class="nav-container">
             <div class="nav-logo">🚀 Scherer-Frailey Ventures</div>
             <ul class="nav-links" id="navLinks">
+                <li><a href="#mission">Mission</a></li>
                 <li><a href="#story">Our Story</a></li>
                 <li><a href="#how-it-works">How It Works</a></li>
                 <li><a href="#impact">Impact</a></li>
@@ -763,6 +877,47 @@
         </div>
     </section>
 
+    <!-- Mission Section -->
+    <section id="mission" class="section-alt">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">🌟 Why We Exist</span>
+                <h2 class="section-title">Our Mission</h2>
+                <p class="section-subtitle">
+                    We're actively developing our mission statement as a group. Here are the leading candidate expressions — each one authentic, each one ours.
+                </p>
+            </div>
+            <div class="mission-cards">
+                <div class="mission-card animate-on-scroll">
+                    <div class="mission-source">— Julia Scherer</div>
+                    <div class="mission-statement">"We foster human flourishing."</div>
+                    <div class="mission-context">
+                        A deep articulation rooted in the Aristotelian concept of <em>eudaimonia</em> — a life well-lived through virtue, purpose, meaningful relationships, and genuine well-being. Julia proposed this as the unifying theme for the website and our public presence.
+                    </div>
+                </div>
+                <div class="mission-card animate-on-scroll">
+                    <div class="mission-source">— Charter of Scherer-Frailey Ventures</div>
+                    <div class="mission-statement">"Foster collaboration, support, mutual growth, accountability, and enthusiasm among self-employed family entrepreneurs."</div>
+                    <div class="mission-context">
+                        The founding expression from our charter — practical, operational, and honest about what we actually do week in and week out. Less poetic, but entirely accurate.
+                    </div>
+                </div>
+                <div class="mission-card animate-on-scroll">
+                    <div class="mission-source">— Derek Scherer</div>
+                    <div class="mission-statement">"We're making a way for people to emulate what we do."</div>
+                    <div class="mission-context">
+                        Derek's outward-facing vision: that the model we've built has value beyond our own family, and that sharing it — equipping others to thrive — is itself part of the mission.
+                    </div>
+                </div>
+            </div>
+            <div class="mission-in-progress">
+                <p>
+                    🔄 <strong>This is a working mission.</strong> We're refining it together. The fact that these three expressions coexist — and that they complement rather than contradict each other — tells us we're close.
+                </p>
+            </div>
+        </div>
+    </section>
+
     <!-- Story Section -->
     <section id="story">
         <div class="container">
@@ -775,32 +930,35 @@
             </div>
             <div class="story-content">
                 <p>
-                    🎯 <strong>Imagine this:</strong> You're a talented entrepreneur with ambitious dreams. 
-                    You've worked with amazing teams before, but now you're on your own. The isolation creeps in. 
-                    The accountability fades. The momentum slows.
+                    🎯 <strong>Here's a feeling most entrepreneurs know:</strong> You're capable. You have a track
+                    record. You've worked with great teams. But now you're on your own — and the isolation is real.
+                    The accountability slips. The momentum requires so much more effort to sustain.
                 </p>
                 <p>
-                    We felt that too. As family members pursuing different ventures, we each had unique skills, 
-                    experiences, and challenges. But we were missing something fundamental—<strong>the power of 
-                    collaboration</strong>.
+                    We felt that too. As family members pursuing different ventures across different domains —
+                    software, education, art, technology — we each had unique strengths and unique struggles. What
+                    we were missing wasn't skill. It was <strong>structure and each other</strong>.
                 </p>
                 <div class="story-highlight">
                     <p style="margin: 0;">
-                        💡 <strong>The breakthrough moment:</strong> What if we formalized our support for each other? 
-                        What if we created structured accountability, regular demonstrations, and shared expertise—all 
-                        while maintaining our independent ventures?
+                        💡 <strong>The founding insight:</strong> What if we treated our family like a
+                        high-functioning team? Not a traditional family business — each of us stays independent —
+                        but a structured collaborative where individual ventures thrive through collective wisdom,
+                        regular accountability, and genuine mutual support.
                     </p>
                 </div>
                 <p>
-                    In 2020, Scherer-Frailey Ventures was born. Not as a traditional family business, but as 
-                    something better—a <strong>family entrepreneurship collaborative</strong> — our own operating
-                    rhythm, where individual ventures thrive through collective wisdom, mutual accountability, and genuine support.
+                    In September 2020, Scherer-Frailey Ventures was born. What started as an experiment has become
+                    a central part of all our lives: weekly syncs that keep us honest and connected, monthly Demo
+                    Days where we show our actual work, and a culture of deep support that turns obstacles into
+                    shared problems.
                 </p>
-                <p>
-                    📈 The results? Weekly sync sessions that keep us on track. Monthly demo days that spark 
-                    innovation. Cross-domain skill sharing that multiplies our capabilities. And most importantly, 
-                    a support network that turns challenges into opportunities.
-                </p>
+                <div class="story-quote">
+                    <p>"The people I want to help — who are helped by the work of others in my family — have needs
+                    met by those other people. Other people will benefit from setting up their own family ventures.
+                    We're making a way for people to emulate what we do."</p>
+                    <cite>— Derek Scherer, February 2026</cite>
+                </div>
             </div>
         </div>
     </section>
@@ -818,34 +976,37 @@
             <div class="grid-4">
                 <div class="card animate-on-scroll">
                     <span class="card-icon">📅</span>
-                    <h3 class="card-title">Weekly Syncs</h3>
+                    <h3 class="card-title">Weekly Heartbeats</h3>
                     <p class="card-text">
-                        Regular touchpoints for progress updates, obstacle discussions, and planning. 
-                        Stay accountable and connected every week.
+                        Regular touchpoints — we call them Heartbeats — where each member shares a one-liner on
+                        current work, a progress update, upcoming plans, and lessons learned. Short, structured,
+                        and accountability-generating.
                     </p>
                 </div>
                 <div class="card animate-on-scroll">
                     <span class="card-icon">📊</span>
-                    <h3 class="card-title">Monthly Demos</h3>
+                    <h3 class="card-title">Monthly Demo Days</h3>
                     <p class="card-text">
-                        In-person gatherings to showcase achievements, validate ideas, and celebrate wins. 
-                        Show, don't just tell.
+                        In-person gatherings of 4–6 hours where we demonstrate real work — not plans, not
+                        summaries, but actual outputs. A forcing function for progress and a celebration of effort.
                     </p>
                 </div>
                 <div class="card animate-on-scroll">
-                    <span class="card-icon">🔄</span>
-                    <h3 class="card-title">Skill Sharing</h3>
+                    <span class="card-icon">🛠️</span>
+                    <h3 class="card-title">Shared Tools & Transparency</h3>
                     <p class="card-text">
-                        Leverage diverse backgrounds for cross-pollination of expertise across 
-                        domains and industries.
+                        A shared GitHub organization for documents, plans, and public materials. Discord for
+                        day-to-day communication and asynchronous discussion. Transparency isn't a policy — it's
+                        the operating default.
                     </p>
                 </div>
                 <div class="card animate-on-scroll">
-                    <span class="card-icon">📚</span>
-                    <h3 class="card-title">Continuous Learning</h3>
+                    <span class="card-icon">🧭</span>
+                    <h3 class="card-title">Identity & Purpose Work</h3>
                     <p class="card-text">
-                        Support each other's growth through shared resources, experiences, and 
-                        constructive feedback.
+                        The practice that separates us from a simple accountability group. We're encouraged — and
+                        regularly challenged — to develop and refine our identity statements, purpose, values, and
+                        principles. Clarity of self generates better work and better relationships.
                     </p>
                 </div>
             </div>
@@ -857,52 +1018,55 @@
         <div class="container">
             <div class="section-header">
                 <span class="section-badge">📈 Our Impact</span>
-                <h2 class="section-title">The Power of Collaboration</h2>
+                <h2 class="section-title">The Power of Showing Up</h2>
                 <p class="section-subtitle">
-                    Five years of consistent support, accountability, and growth
+                    Five-plus years of consistent support, accountability, and growth — in numbers
                 </p>
             </div>
             <div class="stats">
                 <div class="stat-item">
-                    <span class="stat-number">5+</span>
+                    <span class="stat-number">5.5+</span>
                     <span class="stat-label">Years Running</span>
                 </div>
                 <div class="stat-item">
-                    <span class="stat-number">260+</span>
-                    <span class="stat-label">Weekly Syncs</span>
+                    <span class="stat-number">285+</span>
+                    <span class="stat-label">Weekly Heartbeats</span>
                 </div>
                 <div class="stat-item">
-                    <span class="stat-number">60+</span>
-                    <span class="stat-label">Demo Sessions</span>
+                    <span class="stat-number">65+</span>
+                    <span class="stat-label">Demo Days</span>
                 </div>
                 <div class="stat-item">
-                    <span class="stat-number">100%</span>
-                    <span class="stat-label">Family Unity</span>
+                    <span class="stat-number">4</span>
+                    <span class="stat-label">Independent Ventures</span>
                 </div>
             </div>
             <div class="grid-3" style="margin-top: 4rem;">
                 <div class="card animate-on-scroll">
                     <span class="card-icon">🎯</span>
-                    <h3 class="card-title">Accountability & Progress</h3>
+                    <h3 class="card-title">Accountability That Sticks</h3>
                     <p class="card-text">
-                        Regular check-ins and progress reviews keep everyone motivated and on track 
-                        with entrepreneurial goals—no more working in isolation.
+                        Regular check-ins and progress reviews keep everyone moving. There's something uniquely
+                        powerful about reporting to people who know you deeply and want you to succeed — no mutual
+                        professional obligation, just genuine care.
                     </p>
                 </div>
                 <div class="card animate-on-scroll">
                     <span class="card-icon">💡</span>
-                    <h3 class="card-title">Innovation Showcase</h3>
+                    <h3 class="card-title">A Culture of Demonstration</h3>
                     <p class="card-text">
-                        Demonstration sessions provide real feedback, validate ideas quickly, and 
-                        create celebration moments for achievements.
+                        Demo Days create a forcing function unlike any other. Real outputs. Honest feedback.
+                        Repeated celebration of genuine effort. Across 65+ sessions, this rhythm has produced more
+                        than any individual member would have generated alone.
                     </p>
                 </div>
                 <div class="card animate-on-scroll">
-                    <span class="card-icon">📈</span>
-                    <h3 class="card-title">Collective Growth</h3>
+                    <span class="card-icon">🌱</span>
+                    <h3 class="card-title">Identity as Foundation</h3>
                     <p class="card-text">
-                        Individual ventures thrive through shared knowledge, cross-domain expertise, 
-                        and genuine mutual support.
+                        One unexpected outcome: a deep, ongoing collective investment in identity and purpose work.
+                        Clarity of who you are — and why — turns out to be one of the most practical things a
+                        collaborative can offer its members.
                     </p>
                 </div>
             </div>
@@ -927,10 +1091,15 @@
                         <div class="venture-owner">👨‍💼 Entrepreneur & Developer</div>
                     </div>
                     <div class="venture-body">
-                        <p class="venture-bio">
-                            AI, automation, and simulation engineer — equips builders and creators with the
+                        <p class="venture-quote">"I venture into the chaos before us and return to prepare the worthy."</p>
+                        <p class="venture-bio"><span class="venture-bio-label">[draft option 1]</span> AI, automation, and simulation engineer — equips builders and creators with the
                             tools to thrive amid rapid technological change. Currently writing <em>Bot Leader</em>,
                             a field manual for leading a team of machines.
+                        </p>
+                        <p class="venture-bio"><span class="venture-bio-label">[draft option 2]</span> Derek is a rapid-build engineer and strategist who develops AI tools, interactive
+                            graphics, and simulation systems — then brings what works back to the people who need
+                            it. His MTP: <em>Equip the Worthy to Thrive in the Singularity.</em> He operates at the
+                            technological frontier so others don't have to.
                         </p>
                         <div class="venture-links">
                             <a href="https://www.derekscherer.com/" target="_blank" rel="noopener noreferrer" class="venture-link venture-link--primary">
@@ -952,9 +1121,14 @@
                         <div class="venture-owner">👩‍💼 Creative Entrepreneur</div>
                     </div>
                     <div class="venture-body">
-                        <p class="venture-bio">
-                            Musician, teacher, and connector — shares the wonder of music through Sheer Joy
+                        <p class="venture-quote">"I'm a musician and teacher who's part of a family of entrepreneurs doing wildly creative and fascinating things."</p>
+                        <p class="venture-bio"><span class="venture-bio-label">[draft option 1]</span> Musician, teacher, and connector — shares the wonder of music through Sheer Joy
                             Piano Studio and champions the family's ventures as Cognichine's Outreach Manager.
+                        </p>
+                        <p class="venture-bio"><span class="venture-bio-label">[draft option 2]</span> Julia connects people to beauty, creativity, and truth — starting with her own
+                            family and rippling outward. As musician, teacher, and SFV's social media and PR lead,
+                            she's the voice that brings the group's work to the world. Her proposed mission for
+                            SFV — <em>We foster human flourishing</em> — reflects her deepest commitments.
                         </p>
                         <div class="venture-links">
                             <a href="https://juliascherer.com/" target="_blank" rel="noopener noreferrer" class="venture-link venture-link--primary">
@@ -972,9 +1146,15 @@
                         <div class="venture-owner">👨‍💻 Entrepreneur & Innovator</div>
                     </div>
                     <div class="venture-body">
-                        <p class="venture-bio">
-                            Software architect and systems thinker — building an AI-assisted personal
+                        <p class="venture-quote">"There's always an optimal path — find it."</p>
+                        <p class="venture-bio"><span class="venture-bio-label">[draft option 1]</span> Software architect and systems thinker — building an AI-assisted personal
                             alignment framework, with Protizmo as the vehicle for shipping it.
+                        </p>
+                        <p class="venture-bio"><span class="venture-bio-label">[draft option 2]</span> Ed is a systems builder, wildlife photographer, and coach whose work traces back
+                            to a single drive: using analytical insight, empathy, and hard-won optimism to help
+                            others solve consequential problems and flourish. His flagship project,
+                            <strong>InfoCustodian</strong>, helps families preserve, organize, and transfer what
+                            matters most across generations.
                         </p>
                         <div class="venture-links">
                             <a href="https://www.ed-scherer.me" target="_blank" rel="noopener noreferrer" class="venture-link venture-link--primary">
@@ -996,10 +1176,15 @@
                         <div class="venture-owner">👨‍💻 Content Creator & Developer</div>
                     </div>
                     <div class="venture-body">
-                        <p class="venture-bio">
-                            Sculptor and creature-effects artist, with a portfolio spanning iconic characters —
+                        <p class="venture-quote">"I create fascinating, enriching worlds and invite people to the party."</p>
+                        <p class="venture-bio"><span class="venture-bio-label">[draft option 1]</span> Sculptor and creature-effects artist, with a portfolio spanning iconic characters —
                             from <em>Labyrinth</em> to <em>The Dark Crystal</em> to <em>God of War</em> —
                             alongside content creation on Twitch.
+                        </p>
+                        <p class="venture-bio"><span class="venture-bio-label">[draft option 2]</span> Jason is an obsessive creative — sculptor, musician, storyteller, and game
+                            enthusiast — driven by a passion for worlds and experiences that delight, inspire, and
+                            draw people in. From NECA sculptures to his <em>Brainstormers</em> narrative universe,
+                            his work blends aesthetic wonder with genuine heart.
                         </p>
                         <div class="venture-links">
                             <a href="https://www.jasonfrailey.com/" target="_blank" rel="noopener noreferrer" class="venture-link venture-link--primary">
@@ -1024,40 +1209,45 @@
                 <span class="section-badge">🌟 What Drives Us</span>
                 <h2 class="section-title">Our Core Values</h2>
                 <p class="section-subtitle">
-                    The principles that make our collaborative family framework work
+                    The principles that emerged from living this model — not written once and filed away, but
+                    actively practiced
                 </p>
             </div>
             <div class="grid-2">
                 <div class="card value-card animate-on-scroll">
                     <span class="card-icon">🏠</span>
-                    <h3 class="card-title">Family First</h3>
+                    <h3 class="card-title">Family as Foundation</h3>
                     <p class="card-text">
-                        Building strong relationships while pursuing professional growth. Our family 
-                        bonds are the foundation of our success, not an obstacle to it.
+                        Family bonds aren't an obstacle to entrepreneurial ambition — they're the platform for it.
+                        Our deepest relationships are the source of our most honest feedback, strongest support,
+                        and most durable accountability. We invest in those relationships deliberately.
                     </p>
                 </div>
                 <div class="card value-card animate-on-scroll">
                     <span class="card-icon">🔍</span>
-                    <h3 class="card-title">Transparency</h3>
+                    <h3 class="card-title">Integrity & Transparency</h3>
                     <p class="card-text">
-                        Open communication about challenges, successes, and lessons learned. We create 
-                        a safe space for honest dialogue and constructive feedback.
+                        We show our actual work — successes and struggles both. Honest communication about where
+                        we are creates the trust that makes collaboration possible. Integrity isn't a guideline;
+                        it's the operating default that makes everything else work.
                     </p>
                 </div>
                 <div class="card value-card animate-on-scroll">
                     <span class="card-icon">🤲</span>
-                    <h3 class="card-title">Mutual Support</h3>
+                    <h3 class="card-title">Mutual Support & Flourishing</h3>
                     <p class="card-text">
-                        Being available to help each other overcome obstacles and celebrate wins. Your 
-                        success is our success, and we're here for the journey.
+                        We genuinely want each other to thrive — not merely succeed in a narrow professional
+                        sense, but flourish across every dimension of life. Your wins are celebrated. Your
+                        obstacles become shared problems. This isn't transactional; it flows from care.
                     </p>
                 </div>
                 <div class="card value-card animate-on-scroll">
-                    <span class="card-icon">⚡</span>
-                    <h3 class="card-title">Continuous Improvement</h3>
+                    <span class="card-icon">🧭</span>
+                    <h3 class="card-title">Purpose-Driven Growth</h3>
                     <p class="card-text">
-                        Always looking for ways to refine our processes and outcomes. We embrace 
-                        learning, adapt quickly, and constantly evolve.
+                        We believe that clarity of identity and purpose produces better work and better lives. We
+                        don't just support each other's projects — we support each other's ongoing development as
+                        people. Growth without direction is just motion; growth with purpose is momentum.
                     </p>
                 </div>
             </div>
@@ -1092,6 +1282,7 @@
             </div>
             <div class="footer-section">
                 <h3>Quick Links</h3>
+                <a href="#mission">Mission</a>
                 <a href="#story">Our Story</a>
                 <a href="#how-it-works">How It Works</a>
                 <a href="#impact">Impact</a>
@@ -1107,7 +1298,7 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>© 2025 Scherer-Frailey Ventures. Founded 2020 · Empowering entrepreneurship through family collaboration</p>
+            <p>© 2026 Scherer-Frailey Ventures. Founded September 2020 · Empowering entrepreneurship through family collaboration</p>
         </div>
     </footer>
 

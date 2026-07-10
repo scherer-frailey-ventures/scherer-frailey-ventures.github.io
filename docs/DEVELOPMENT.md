@@ -229,7 +229,23 @@ Not decided here — flagging it as a live open question for Demo Day discussion
 
 A lightweight starting point exists at `member-journey-mapping-exercise.md` (adjacent to this file) — a disposable 20-minute worksheet for each member to self-walk their own "someone remembers me" journey, rather than committing to a full journeys document up front. Delete it if the idea goes nowhere.
 
+#### Redistributing content recovered from `index1a.html` (2026-07-10)
+
+A git conflict (see the entry above on `index1a.html`) surfaced better copy from the unpulled March 2026 prototype than what these July drafts started from. Rather than adopt that prototype wholesale — it baked the Framework pitch directly into the SFV site, a direction superseded by the May 4 Demo Day split — its improvements were distributed piece by piece:
+
+| Content | Landed in | Notes |
+|---|---|---|
+| New "Our Mission" section (Julia / Charter / Derek candidate mission statements) | `index1.html`, `index2.html`, `index3.html` | New nav link + section; SFV-specific, not generic, so not added to the Framework mockups |
+| Improved Story prose + Derek's pull-quote | `index1.html`, `index2.html`, `index3.html` | The prototype's closing "living proof / adopt, adapt" pitch paragraph was **not** ported — redundant with the Framework mockups' own CTA |
+| Refined "How It Works" pillars (Weekly Heartbeats / Monthly Demo Days / Shared Tools & Transparency / Identity & Purpose Work, replacing Skill Sharing) | All five files | SFV versions keep a self-referential "us/our" voice without asserting the "Family Ventures" brand name; Framework versions use the brand name and third person |
+| Updated stats (5.5+ years / 285+ Heartbeats / 65+ Demo Days / 4 Ventures) + refreshed impact cards | `index1.html`, `index2.html`, `index3.html` | Also updated the Instances-section citation of these same numbers in both Framework mockups |
+| Improved Values copy (Family as Foundation / Integrity & Transparency / Mutual Support & Flourishing / Purpose-Driven Growth) | All five files | Framework versions re-voiced to third person ("members," "a family") since no single family is speaking there |
+| Richer, identity-driven member bios + one-line quotes | `index1.html`, `index2.html`, `index3.html` | Kept **both** bio styles side by side — `[draft option 1]` (today's public-site-sourced bios) and `[draft option 2]` (the prototype's identity/MTP-driven bios) — since each member should pick their own preferred version at review rather than have one chosen for them. The prototype's quote line was added above both options in each card. |
+| Founding date specificity ("September 2020") | Footer copyright line in `index1.html`, `index2.html`, `index3.html`; "running since" line in both Framework mockups | Confirmed accurate, not just inherited from the prototype |
+
+`index1.html` / `index2.html` CTAs were deliberately left untouched (still the pre-Framework-split copy) — that's intentional, showing the state of affairs before the Framework was factored out; only `index3.html` has the reworked hand-off CTA.
+
 ---
 
 
-*Last Updated: 2026-07-09 (re-voiced drafts as "our instance" now that the Framework is factored out; added Framework mockup exploration — `family-ventures-framework-1.html` / `-2.html`; fixed mobile nav gap in the three SFV drafts; recorded open decision on merging drafts to the live site; fixed SFV-specific leakage in the Framework mockups' Get Started CTA; renamed "Ventures" nav/badge to "Members"; recorded open question on a dedicated SFV user-journeys document; added `member-journey-mapping-exercise.md` as a disposable starting point)*
+*Last Updated: 2026-07-10 (redistributed improved content recovered from the unpulled `index1a.html` prototype across the three SFV drafts and two Framework mockups — see table above)*
