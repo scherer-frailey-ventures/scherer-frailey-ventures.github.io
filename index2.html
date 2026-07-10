@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="A family entrepreneurship collaborative fostering innovation, accountability, and mutual support. Discover how formalized family collaboration can empower your ventures.">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="description" content="Scherer-Frailey Ventures — our family's entrepreneurship collaborative, fostering innovation, accountability, and mutual support since 2020.">
     <meta name="keywords" content="family entrepreneurship, collaboration, accountability, ventures, innovation, team support, family business">
     <meta name="author" content="Scherer-Frailey Ventures">
-    <title>Scherer-Frailey Ventures | Family Entrepreneurship Collaborative</title>
+    <title>[DRAFT 2] Scherer-Frailey Ventures | Family Entrepreneurship Collaborative</title>
     <style>
         :root {
             --primary: #667eea;
@@ -44,12 +45,36 @@
             color: var(--text-dark);
             line-height: 1.6;
             overflow-x: hidden;
+            padding-top: 36px;
+        }
+
+        /* Draft banner (exploration-only marker, not part of the live site) */
+        .draft-banner {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1100;
+            background: #1a202c;
+            color: #fbbf24;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-align: center;
+            padding: 0.45rem 1rem;
+            letter-spacing: 0.01em;
+        }
+
+        .draft-banner a {
+            color: #ffffff;
+            text-decoration: underline;
+            margin: 0 0.35rem;
+            font-weight: 700;
         }
 
         /* Navigation */
         nav {
             position: fixed;
-            top: 0;
+            top: 36px;
             width: 100%;
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
@@ -111,6 +136,37 @@
 
         .nav-links a:hover::after {
             width: 100%;
+        }
+
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .nav-toggle span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--text-dark);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-toggle.active span:nth-child(1) {
+            transform: translateY(7px) rotate(45deg);
+        }
+
+        .nav-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .nav-toggle.active span:nth-child(3) {
+            transform: translateY(-7px) rotate(-45deg);
         }
 
         /* Hero Section */
@@ -420,6 +476,21 @@
             color: white;
         }
 
+        .venture-avatar {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 1.25rem;
+            color: #ffffff;
+            background: rgba(255, 255, 255, 0.22);
+            border: 2px solid rgba(255, 255, 255, 0.55);
+            margin-bottom: 0.75rem;
+        }
+
         .venture-name {
             font-size: 1.5rem;
             font-weight: 700;
@@ -433,6 +504,13 @@
 
         .venture-body {
             padding: 2rem;
+        }
+
+        .venture-bio {
+            color: var(--text-medium);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin: 0 0 1.25rem;
         }
 
         .venture-links {
@@ -456,6 +534,16 @@
         .venture-link:hover {
             background: var(--bg-light);
             gap: 1rem;
+        }
+
+        .venture-link--primary {
+            background: var(--bg-light);
+            font-weight: 700;
+            border: 1px solid var(--border);
+        }
+
+        .venture-link--primary:hover {
+            background: var(--border);
         }
 
         .venture-link-icon {
@@ -553,8 +641,39 @@
 
         /* Mobile Styles */
         @media (max-width: 768px) {
+            .nav-toggle {
+                display: flex;
+            }
+
             .nav-links {
                 display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                flex-direction: column;
+                gap: 0;
+                background: rgba(255, 255, 255, 0.98);
+                padding: 0.5rem 2rem 1rem;
+                box-shadow: var(--shadow-md);
+            }
+
+            .nav-links.open {
+                display: flex;
+            }
+
+            .nav-links li {
+                width: 100%;
+            }
+
+            .nav-links a {
+                display: block;
+                padding: 0.85rem 0;
+                border-bottom: 1px solid var(--border);
+            }
+
+            .nav-links li:last-child a {
+                border-bottom: none;
             }
 
             section {
@@ -598,17 +717,33 @@
     </style>
 </head>
 <body>
+    <!-- Draft banner -->
+    <div class="draft-banner">
+        🧪 DRAFT 2 of 3 — Demo Day exploration, not the live site &middot;
+        <a href="index.html">live site</a> &middot;
+        <a href="index1.html">draft 1: profiles</a> &middot;
+        <a href="index2.html">draft 2: + avatars</a> &middot;
+        <a href="index3.html">draft 3: + framework/instance</a> &middot;
+        <a href="family-ventures-framework-1.html">FV framework mockup 1</a> &middot;
+        <a href="family-ventures-framework-2.html">FV framework mockup 2</a>
+    </div>
+
     <!-- Navigation -->
     <nav id="navbar">
         <div class="nav-container">
             <div class="nav-logo">🚀 Scherer-Frailey Ventures</div>
-            <ul class="nav-links">
+            <ul class="nav-links" id="navLinks">
                 <li><a href="#story">Our Story</a></li>
                 <li><a href="#how-it-works">How It Works</a></li>
                 <li><a href="#impact">Impact</a></li>
-                <li><a href="#ventures">Ventures</a></li>
+                <li><a href="#ventures">Members</a></li>
                 <li><a href="#values">Values</a></li>
             </ul>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </nav>
 
@@ -616,10 +751,10 @@
     <section class="hero">
         <div class="hero-content">
             <div class="hero-badge">🏠 Family · 🤝 Collaboration · 🚀 Innovation</div>
-            <h1>Your Family Could Be Your Greatest Team</h1>
+            <h1>Our Family Is Our Greatest Team</h1>
             <p class="hero-subtitle">
-                Discover how a formalized family collaboration transformed independent entrepreneurs 
-                into an unstoppable support network—and how you can do it too.
+                Since 2020, formalized collaboration has turned four independent entrepreneurs
+                into an unstoppable support network.
             </p>
             <div class="cta-buttons">
                 <a href="#story" class="btn btn-primary">See How We Did It</a>
@@ -658,8 +793,8 @@
                 </div>
                 <p>
                     In 2020, Scherer-Frailey Ventures was born. Not as a traditional family business, but as 
-                    something better—a <strong>family entrepreneurship collaborative</strong>. A framework where 
-                    individual ventures thrive through collective wisdom, mutual accountability, and genuine support.
+                    something better—a <strong>family entrepreneurship collaborative</strong> — our own operating
+                    rhythm, where individual ventures thrive through collective wisdom, mutual accountability, and genuine support.
                 </p>
                 <p>
                     📈 The results? Weekly sync sessions that keep us on track. Monthly demo days that spark 
@@ -674,7 +809,7 @@
     <section id="how-it-works" class="section-alt">
         <div class="container">
             <div class="section-header">
-                <span class="section-badge">⚙️ The Framework</span>
+                <span class="section-badge">⚙️ How We Operate</span>
                 <h2 class="section-title">How It Works</h2>
                 <p class="section-subtitle">
                     A simple yet powerful structure that keeps everyone aligned and accountable
@@ -778,7 +913,7 @@
     <section id="ventures" class="section-alt">
         <div class="container">
             <div class="section-header">
-                <span class="section-badge">🚀 Active Ventures</span>
+                <span class="section-badge">� Meet the Members</span>
                 <h2 class="section-title">Our Members & Their Ventures</h2>
                 <p class="section-subtitle">
                     Independent entrepreneurs supported by collaborative family strength
@@ -787,12 +922,18 @@
             <div class="grid-2">
                 <div class="venture-card animate-on-scroll">
                     <div class="venture-header" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                        <div class="venture-avatar">DS</div>
                         <div class="venture-name">Derek Scherer</div>
                         <div class="venture-owner">👨‍💼 Entrepreneur & Developer</div>
                     </div>
                     <div class="venture-body">
+                        <p class="venture-bio">
+                            AI, automation, and simulation engineer — equips builders and creators with the
+                            tools to thrive amid rapid technological change. Currently writing <em>Bot Leader</em>,
+                            a field manual for leading a team of machines.
+                        </p>
                         <div class="venture-links">
-                            <a href="https://www.derekscherer.com/" target="_blank" rel="noopener noreferrer" class="venture-link">
+                            <a href="https://www.derekscherer.com/" target="_blank" rel="noopener noreferrer" class="venture-link venture-link--primary">
                                 <span class="venture-link-icon">🌐</span>
                                 <span>derekscherer.com</span>
                             </a>
@@ -806,12 +947,17 @@
 
                 <div class="venture-card animate-on-scroll">
                     <div class="venture-header" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                        <div class="venture-avatar">JS</div>
                         <div class="venture-name">Julia Scherer</div>
                         <div class="venture-owner">👩‍💼 Creative Entrepreneur</div>
                     </div>
                     <div class="venture-body">
+                        <p class="venture-bio">
+                            Musician, teacher, and connector — shares the wonder of music through Sheer Joy
+                            Piano Studio and champions the family's ventures as Cognichine's Outreach Manager.
+                        </p>
                         <div class="venture-links">
-                            <a href="https://juliascherer.com/" target="_blank" rel="noopener noreferrer" class="venture-link">
+                            <a href="https://juliascherer.com/" target="_blank" rel="noopener noreferrer" class="venture-link venture-link--primary">
                                 <span class="venture-link-icon">🌐</span>
                                 <span>juliascherer.com</span>
                             </a>
@@ -821,12 +967,17 @@
 
                 <div class="venture-card animate-on-scroll">
                     <div class="venture-header" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                        <div class="venture-avatar">ES</div>
                         <div class="venture-name">Ed Scherer</div>
-                        <div class="venture-owner">�‍💻 Entrepreneur & Innovator</div>
+                        <div class="venture-owner">👨‍💻 Entrepreneur & Innovator</div>
                     </div>
                     <div class="venture-body">
+                        <p class="venture-bio">
+                            Software architect and systems thinker — building an AI-assisted personal
+                            alignment framework, with Protizmo as the vehicle for shipping it.
+                        </p>
                         <div class="venture-links">
-                            <a href="https://www.ed-scherer.me" target="_blank" rel="noopener noreferrer" class="venture-link">
+                            <a href="https://www.ed-scherer.me" target="_blank" rel="noopener noreferrer" class="venture-link venture-link--primary">
                                 <span class="venture-link-icon">🌐</span>
                                 <span>ed-scherer.me</span>
                             </a>
@@ -840,12 +991,18 @@
 
                 <div class="venture-card animate-on-scroll">
                     <div class="venture-header" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">
+                        <div class="venture-avatar">JF</div>
                         <div class="venture-name">Jason Frailey</div>
                         <div class="venture-owner">👨‍💻 Content Creator & Developer</div>
                     </div>
                     <div class="venture-body">
+                        <p class="venture-bio">
+                            Sculptor and creature-effects artist, with a portfolio spanning iconic characters —
+                            from <em>Labyrinth</em> to <em>The Dark Crystal</em> to <em>God of War</em> —
+                            alongside content creation on Twitch.
+                        </p>
                         <div class="venture-links">
-                            <a href="https://www.jasonfrailey.com/" target="_blank" rel="noopener noreferrer" class="venture-link">
+                            <a href="https://www.jasonfrailey.com/" target="_blank" rel="noopener noreferrer" class="venture-link venture-link--primary">
                                 <span class="venture-link-icon">🌐</span>
                                 <span>jasonfrailey.com</span>
                             </a>
@@ -938,7 +1095,7 @@
                 <a href="#story">Our Story</a>
                 <a href="#how-it-works">How It Works</a>
                 <a href="#impact">Impact</a>
-                <a href="#ventures">Ventures</a>
+                <a href="#ventures">Members</a>
                 <a href="#values">Values</a>
             </div>
             <div class="footer-section">
@@ -964,6 +1121,25 @@
                 navbar.classList.remove('scrolled');
             }
         });
+
+        // Mobile nav toggle
+        const navToggle = document.getElementById('navToggle');
+        const navLinksList = document.getElementById('navLinks');
+        if (navToggle && navLinksList) {
+            navToggle.addEventListener('click', () => {
+                const isOpen = navLinksList.classList.toggle('open');
+                navToggle.classList.toggle('active', isOpen);
+                navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+            });
+
+            navLinksList.querySelectorAll('a').forEach((link) => {
+                link.addEventListener('click', () => {
+                    navLinksList.classList.remove('open');
+                    navToggle.classList.remove('active');
+                    navToggle.setAttribute('aria-expanded', 'false');
+                });
+            });
+        }
 
         // Animate on scroll
         const observerOptions = {
