@@ -45,7 +45,7 @@
             color: var(--text-dark);
             line-height: 1.6;
             overflow-x: hidden;
-            padding-top: 36px;
+            padding-top: var(--banner-h, 36px);
         }
 
         /* Draft banner (exploration-only marker, not part of the live site) */
@@ -74,7 +74,7 @@
         /* Navigation */
         nav {
             position: fixed;
-            top: 36px;
+            top: var(--banner-h, 36px);
             width: 100%;
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
@@ -831,7 +831,7 @@
 </head>
 <body>
     <!-- Draft banner -->
-    <div class="draft-banner">
+    <div class="draft-banner" id="draftBanner">
         🧪 DRAFT 2 of 3 — Demo Day exploration, not the live site &middot;
         <a href="index.html">live site</a> &middot;
         <a href="index1.html">draft 1: profiles</a> &middot;
@@ -840,6 +840,18 @@
         <a href="family-ventures-framework-1.html">FV framework mockup 1</a> &middot;
         <a href="family-ventures-framework-2.html">FV framework mockup 2</a>
     </div>
+    <script>
+        // Keep the nav pinned directly below the draft banner even when the
+        // banner text wraps to multiple lines on narrow phone screens.
+        (function () {
+            var banner = document.getElementById('draftBanner');
+            function syncBannerHeight() {
+                document.documentElement.style.setProperty('--banner-h', banner.offsetHeight + 'px');
+            }
+            syncBannerHeight();
+            window.addEventListener('resize', syncBannerHeight);
+        })();
+    </script>
 
     <!-- Navigation -->
     <nav id="navbar">

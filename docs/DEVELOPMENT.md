@@ -177,6 +177,20 @@ A journey-fitness review against `online-presence-user-journeys.md` (Actor 1 —
 
 Fixed in `index1.html`, `index2.html`, and `index3.html`: a small hamburger toggle button appears in the nav bar below 768px, opening a full-width dropdown of the same nav links (closes automatically on link tap). This predates all of this session's copy changes — it was a pre-existing gap in the live site too — so it's **not yet applied to `index.html`**, consistent with holding all drafted changes for group review. The same gap likely exists on `family-ventures-framework-1.html` / `-2.html` as well (not yet fixed there — flagging for a follow-up pass if those mockups get taken further).
 
+#### Mobile nav follow-up: menu was invisible on real phones, and never reached the Framework mockups (2026-07-10)
+
+A phone re-test of the 2026-07-09 fix above found the hamburger menu wasn't showing up at all — assessment found two distinct problems, both now fixed:
+
+1. **`index1.html` / `index2.html` / `index3.html`: the menu was implemented correctly but hidden behind the draft banner.** The draft banner and the nav are both `position: fixed`, with the nav hard-coded to sit at `top: 36px` (and `body` given a matching `padding-top: 36px`) — an assumption that the banner renders as one line. On real phone widths the banner's six-link list wraps to two or three lines and grows well past 36px tall, but the banner's `z-index` (1100) is higher than the nav's (1000), so the taller banner simply covered the entire nav bar — logo, links, and hamburger button — leaving nothing visible or clickable underneath it. Confirmed in a simulated 390px-wide viewport: the banner rendered at ~96px tall, completely occluding the nav directly below it.
+
+   **Fix:** the banner now has `id="draftBanner"`, and a small inline script measures its real rendered height on load and on resize/orientation-change, writing it to a `--banner-h` CSS custom property. The nav's `top` and the body's `padding-top` both reference `var(--banner-h, 36px)` instead of the hard-coded value, so the nav always sits directly below the banner regardless of how many lines the banner text wraps to.
+
+2. **`family-ventures-framework-1.html` / `family-ventures-framework-2.html`: the menu was never built, exactly as flagged as a follow-up above.** Mobile CSS was just `.nav-links { display: none; }` with no toggle button, no JS, and no `.nav-toggle` styles at all — so below 768px the nav links vanished with nothing to replace them.
+
+   **Fix:** both mockups now carry the same hamburger pattern as the SFV drafts — `.nav-toggle` button styles, a proper mobile dropdown (`.nav-links.open`), the toggle button markup (`#navToggle` / `#navLinks`), the open/close JS, and the same `--banner-h` fix from item 1 above (they share the identical banner/nav markup pattern, so the same overlap bug applied here too, once a menu existed to overlap).
+
+Verified all five pages (`index1`, `index2`, `index3`, `family-ventures-framework-1`, `family-ventures-framework-2`) in a simulated 390×844 mobile viewport: banner renders, nav sits immediately below it with no overlap, hamburger button is visible and clickable, and tapping it opens/closes the full link list.
+
 ---
 
 ### Open Decision: Merging the Drafts into the Live Site
