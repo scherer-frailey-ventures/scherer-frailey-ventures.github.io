@@ -99,6 +99,12 @@ A cross-system review of Ed's documented [online-presence user journeys](https:/
 | `index2.html` | Everything in draft 1, plus a small circular initials avatar per card (e.g., "ES", "JS") | Draft — placeholder only |
 | `index3.html` | Everything in draft 2, plus a new "One Instance of a Replicable Framework" section reusing the Framework/Instance language already presented at the 2026-05-04 Demo Day (see `commons/docs/presentations/2026-05-04-demo-day-sfv-vision/`) | Draft — narrative preview only |
 
+#### `index1a.html` — recovered March 2026 prototype (2026-07-09)
+
+A `git pull` today surfaced a merge conflict: `index1.html` had also been used, independently, by an earlier session on another machine back on 2026-03-02 (the chat transcript for that session is in `.github/chats/`). That earlier prototype had been pushed to `origin/main` months ago but never pulled down or promoted to `index.html`, so today's drafts were built without it and collided on the filename.
+
+That prototype pursued a different direction than today's drafts — baking the "Family Ventures product" pitch directly into the SFV site itself (title: *"A Family Ventures Deployment"*), rather than the instance/framework separation later agreed at the 2026-05-04 Demo Day. It's superseded as a whole, but it's preserved here as **`index1a.html`** (byte-identical to the conflicting `origin/main` version) because a couple of its sections — the "Why We Exist" / "Our Mission" framing and the "Our Journey" / "From Isolated to Inspired" narrative — are better-written than what's in today's drafts and worth reviewing for possible reuse in `index1.html`/`index2.html`/`index3.html`. Not itself a candidate for `index.html`; a source to draw from during the drafts' next revision pass.
+
 Each draft carries a `noindex` meta tag and a dismissible banner at the top so it's unmistakable as exploration, not the live site.
 
 #### Bio sourcing (needs member confirmation before anything ships)
