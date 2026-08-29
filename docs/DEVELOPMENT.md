@@ -261,5 +261,29 @@ A git conflict (see the entry above on `index1a.html`) surfaced better copy from
 
 ---
 
+### Draft cleanup: `index1.html`, `index2.html`, `family-ventures-framework-1.html` retired (2026-08-28)
+
+Part of the broader SFV repositioning following the Kinvergence separation
+(`ed-scherer-runtime/areas/work-and-business/projects/advance-sfv-2.md`). All three files' content
+was already fully accounted for elsewhere before deletion:
+
+- **`index1.html` and `index2.html`** were superseded in-place by `index3.html`, which carries
+  every improvement from both (per the tables above) plus the Framework/Instance section neither
+  earlier draft had. Nothing in either file existed that `index3.html` doesn't already have.
+- **`family-ventures-framework-1.html`** was one of two visually-identical mockups
+  (`-1.html`/`-2.html`, differing only in color palette — purple/pink vs. teal/emerald). Its content
+  was already fully documented above (§ Going a level deeper) and its actual replacement already
+  exists and shipped: the real Kinvergence invitation site at
+  [kinvergence.github.io](https://github.com/kinvergence/kinvergence.github.io), whose own
+  `DEVELOPMENT.md` explicitly documents what it took from this mockup's structural skeleton and
+  why most of the mockup's *content* (a "Core Values" section, four "pillars," the "[Qualifier]
+  Family Ventures" placeholder name, the teal palette) was deliberately **not** carried forward —
+  see that file's § Do not reintroduce.
+
+`index3.html` and `family-ventures-framework-2.html` had their internal links (draft banners, the
+"Preview a separated Framework site" card, and the closing CTA) repointed to the files that
+survive, since both previously linked to the three retired files.
+
+---
 
 *Last Updated: 2026-07-10 (redistributed improved content recovered from the unpulled `index1a.html` prototype across the three SFV drafts and two Framework mockups — see table above)*
