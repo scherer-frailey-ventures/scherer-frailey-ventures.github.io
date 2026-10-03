@@ -1,289 +1,166 @@
-# Public Website Development Notes
-
-## Project: scherer-frailey-ventures.github.io
-
-### Design Direction (November 3, 2025)
-
-#### Core Purpose
-Showcase how a formalized, extended-family-based collaborative organization can support individual ventures and personal growth. Inspire others to create similar structures within their own families.
-
-#### Target Audience
-1. Independent entrepreneurs who miss team environments
-2. People interested in team collaboration frameworks (even family-based)
-3. Media/storytellers looking for positive family collaboration stories
-4. General public curious about strong family structures
-
-#### Design Choices
-- **Style**: Modern & tech-forward
-- **Layout**: Single-page scrolling
-- **Visuals**: Abstract/icon-based (no photos for now)
-- **Effects**: Animated sections, hover effects
-- **Colors**: Tech-forward palette (current avatar may be replaced)
-
-#### Content Strategy
-- **Tone**: Mix of inspirational, practical, and story-driven
-- **Key Messaging**: 
-  - Collaboration
-  - Family
-  - Accountability
-- **Visual Enhancement**: Unicode pictographic characters throughout
-- **Metrics to Highlight**:
-  - 5 years running (since 2020)
-  - Weekly syncs
-  - Monthly demos
-  - Number of family members/ventures
-
-#### Featured Ventures & Members
-Current ventures to showcase:
-- Derek Scherer: https://www.derekscherer.com/
-  - Cognichine: https://cognichine.com/
-- Julia Scherer: https://juliascherer.com/
-- Protizmo: https://www.protizmo.com/
-- Jason Frailey: https://www.jasonfrailey.com/
-  - Twitch: https://www.twitch.tv/jasonfrailey
-
-#### Future Enhancements (Deferred)
-- [ ] Contact form functionality
-- [ ] "Getting Started Guide" for others to form similar organizations
-- [ ] Charter template downloads
-- [ ] Multi-page navigation as content grows
-- [ ] Member photos/avatars
-- [ ] Updated organization icon/logo
-- [ ] Resources section for replication
-- [ ] Step-by-step implementation guide
-- [ ] Success stories/case studies
-- [ ] Testimonials from members
-- [ ] Blog/updates section
-- [ ] Event calendar integration
-- [ ] Project showcase gallery with filtering
-- [ ] Interactive mermaid diagram from README
-
-#### Technical Notes
-- Single HTML file for simplicity
-- Self-contained CSS (no external dependencies initially)
-- Responsive design (mobile-first)
-- Fast loading, minimal dependencies
-- Accessibility considerations
-
-#### Content Sections (Planned)
-1. Hero - Bold statement about family collaboration
-2. The Story - Journey from individual to collaborative
-3. How It Works - Weekly syncs, monthly demos, skill sharing
-4. Our Approach - Accountability, innovation, transparency
-5. Impact/Achievements - Stats and milestones
-6. Ventures - Showcase member projects
-7. Values - What drives us
-8. Call to Action - "You can do this too"
-
-#### Design Inspirations
-- Tech startup landing pages
-- Modern SaaS product sites
-- Community/collaboration platforms
-- Family office websites (but more accessible/inspiring)
-
+---
+title: "Development"
+description: "Working notes for the SFV website — current-state only: structure, hard constraints, checked facts, decisions in force, do-not-reintroduce list"
+date_created: "2025-11-03"
+last_updated: "2026-10-02"
+maintenance_instructions: |
+  Repo-local build detail only — current-state, not narrative. Project-level tracking (task list,
+  session-by-session progress) lives in `advance-sfv-2.md` (ed-scherer-runtime, Ed's personal
+  project file) — do not duplicate that here, and do not let this file's own history accumulate;
+  when something here is resolved, dated, or turns into "how we got here" narrative, that belongs
+  in the project file's Progress Log, not this file. Mirrors the sibling pattern already in force at
+  `kinvergence.github.io/DEVELOPMENT.md` — when in doubt about what belongs here versus there, check
+  how that file draws the line.
 ---
 
-### Draft Exploration — Demo Day Prep (July 2026)
+# Development
 
-*Ideas explored ahead of the July 2026 Demo Day. Not committed — for group discussion. Nothing here changes `index.html`; each idea lives in a sibling draft file so the live site is never at risk.*
+Working notes for the site. Read this before changing copy.
 
-#### Why these drafts exist
+## Structure
 
-A cross-system review of Ed's documented [online-presence user journeys](https://github.com/ed-scherer/ed-scherer-os/blob/main/docs/reference/online-presence-user-journeys.md) found that our member cards in the **Ventures** section are the pivot point for two visitor journeys (a referral who meets a member first, and a stranger curious about SFV itself) — but today the cards are thin: name, role tag, and one or two bare links, no sense of who each person is. The pattern below is proposed as something any member could apply to their own card; each draft only touches presentation, never repo/org structure.
+One page, no build step: `index.html`. Styles and script are inlined — unlike `kinvergence.github.io`,
+this site has never been split into multiple pages. A shared `assets/` folder was added 2026-10-02
+(favicon, apple-touch-icon, emblem, OG image only — page styling stays inlined). Sections, in
+order: Hero → Mission → Story (including "Why It Holds," the four members' 2026-03 purpose quotes)
+→ How We Work (the three Kinvergence practices) → The Shape Of It (dated-fact stats) → Kinvergence
+(relationship + cross-link) → Members (ventures + business-card one-liners) → closing CTA → footer.
 
-#### Draft files
+**If this page keeps growing, split it** — `kinvergence.github.io`'s own experience is the
+precedent: two rounds of sentence-level trimming only got it to 86% of its original length; moving
+whole sections to dedicated pages is what actually worked. No secondary pages exist for this site
+yet; the first candidate, if/when, is SFV's fuller story (founding, the twenty informal months, the
+first Demo Day almost not happening — all already written up with evidence grades in
+`commons/docs/sfv-timeline.md`, just not yet adapted into site copy).
 
-| File | Adds on top of `index.html` | Status |
-|---|---|---|
-| `index1.html` | A one-to-two sentence bio per member under the Ventures header, sourced from each member's own public site; the member's primary personal link visually distinguished as the "start here" link | Draft — needs each member's review |
-| `index2.html` | Everything in draft 1, plus a small circular initials avatar per card (e.g., "ES", "JS") | Draft — placeholder only |
-| `index3.html` | Everything in draft 2, plus a new "One Instance of a Replicable Framework" section reusing the Framework/Instance language already presented at the 2026-05-04 Demo Day (see `commons/docs/presentations/2026-05-04-demo-day-sfv-vision/`) | Draft — narrative preview only |
+## Hard copy constraints
 
-#### `index1a.html` — recovered March 2026 prototype (2026-07-09)
-
-A `git pull` today surfaced a merge conflict: `index1.html` had also been used, independently, by an earlier session on another machine back on 2026-03-02 (the chat transcript for that session is in `.github/chats/`). That earlier prototype had been pushed to `origin/main` months ago but never pulled down or promoted to `index.html`, so today's drafts were built without it and collided on the filename.
-
-That prototype pursued a different direction than today's drafts — baking the "Family Ventures product" pitch directly into the SFV site itself (title: *"A Family Ventures Deployment"*), rather than the instance/framework separation later agreed at the 2026-05-04 Demo Day. It's superseded as a whole, but it's preserved here as **`index1a.html`** (byte-identical to the conflicting `origin/main` version) because a couple of its sections — the "Why We Exist" / "Our Mission" framing and the "Our Journey" / "From Isolated to Inspired" narrative — are better-written than what's in today's drafts and worth reviewing for possible reuse in `index1.html`/`index2.html`/`index3.html`. Not itself a candidate for `index.html`; a source to draw from during the drafts' next revision pass.
-
-Each draft carries a `noindex` meta tag and a dismissible banner at the top so it's unmistakable as exploration, not the live site.
-
-#### Bio sourcing (needs member confirmation before anything ships)
-
-Bios were summarized from each member's own public site, not invented:
-
-- **Derek Scherer** — from `derekscherer.com` (AI/automation/simulation consulting; the *Bot Leader* book)
-- **Julia Scherer** — from `juliascherer.com` (Sheer Joy Piano Studio; Cognichine Outreach Manager)
-- **Ed Scherer** — from his own approved brand material (`introductions.md`, professional/networking variant)
-- **Jason Frailey** — from `jasonfrailey.com`, which currently reads as a sculpture/creature-effects portfolio (Labyrinth, The Dark Crystal, God of War pieces) rather than the site's current "Content Creator & Developer" tag. The draft bio tries to bridge both; **Jason should confirm or correct this** — it's inferred from the portfolio, not from anything he's said about himself.
-
-No role tags were changed for anyone but Ed — only bios were added underneath the existing tags.
-
-#### Avatar note
-
-Draft 2/3 use plain initials in a colored circle, not real photos. The site is currently icon-only by design (see "Design Choices" above); adding a photo for one member without the others would be visually inconsistent, and using anyone's photo without asking first isn't appropriate. Initials are a safe placeholder — swap in real photos only if/when each member is asked and agrees.
-
-#### The bigger "Family Ventures Framework" idea (Draft 3 only)
-
-Since 2020 SFV has quietly served two purposes: a specific family's collaborative (**the instance**) and a potentially replicable model other families could adopt (**the framework**). This was presented to the whole group at the 2026-05-04 Demo Day (`commons/docs/presentations/2026-05-04-demo-day-sfv-vision/`) and agreed conceptually — but the follow-through (new GitHub org, template repos, a distinct Discord server, a qualified name) never happened; it's been back-burner for months.
-
-**Assessment:** standing up the actual framework organization (new GitHub org + template repos + Discord rename + a settled qualified name like "Aligned Family Ventures") is *not* a quick win — it touches shared infrastructure four people depend on and deserves its own working session. What *is* a quick, safe win is the narrative-only preview in `index3.html`: a short section naming the framework/instance split in plain language, using words already shared and agreed at Demo Day, with zero infrastructure risk. It gives visible progress on something that's stalled for months without pre-committing anyone to the org-level work.
-
-**Open questions carried forward (unchanged from the 2026-05-04 presentation):**
-- What qualifying word or name for the general framework (`family-ventures.com` is taken; candidates already brainstormed: Aligned / Collaborative / Connected / Open Family Ventures, Family Ventures Collective/Network, Venture Families)
-- Whether/when to actually stand up the separate GitHub org and template repos
-- Whether/when to rename the SFV Discord server to remove the "Family Ventures" ambiguity
-- Whether member bios (Draft 1) should become a standing convention every member maintains for their own card
-
-#### Going a level deeper: concrete Framework mockups (`family-ventures-framework-1.html`, `-2.html`)
-
-Draft 3's narrative section names the framework/instance split in a sentence. These two mockups go further and actually show what a *separated* Framework homepage could look like — content factored out of the SFV site into something SFV-neutral, with SFV itself listed as the first example instance. Still no real hosting, repo, or Discord — everything lives in these two sibling files in this same repo, purely to give the group something concrete to react to at Demo Day rather than an abstraction.
-
-| File | What it shows |
+| Rule | Source |
 |---|---|
-| `family-ventures-framework-1.html` | Content factoring only: generic "Model" narrative, "How It Works" (unchanged — it was already generic), an "Instances" section listing Scherer-Frailey Ventures as the flagship example plus a "Your Family Here" placeholder card, and a "Get Started" CTA. Uses the same visual palette as the SFV site. |
-| `family-ventures-framework-2.html` | Identical content to mockup 1, but with a **distinct color palette** (teal/emerald instead of SFV's purple/pink). Demonstrates the case for why the framework brand probably shouldn't look identical to any one instance's brand — otherwise visitors can't tell the two organizations apart. |
+| **No cumulative counts** — no "5.5+ years," "285+ heartbeats," "65+ Demo Days." Checked against `sfv-timeline.md` and found unreliable. Prefer dated events and bounded phrasing ("almost every week since 2022-08") | `advance-sfv-2.md` Quality Gates; see § Checked facts below |
+| **Real cadence names** — Heartbeat, Demo Day, Stewardship. Never "Weekly Sync," "Monthly Demonstration," or other generic placeholders | Same source as above |
+| **No emoji** — not as decoration, not as icons. Matches `kinvergence.github.io`'s own hard constraint; this site previously had them throughout | `kinvergence.github.io/DEVELOPMENT.md` § Hard copy constraints, applied here 2026-10-02 |
+| **No unratified "Core Values" section.** SFV's values are genuinely unselected — three candidates, not yet picked (`commons/docs/values-development.md`) — asserting a settled list would misrepresent that. This is the single worst thing to reintroduce, same as the equivalent warning in `kinvergence.github.io/DEVELOPMENT.md` | See § Do not reintroduce below |
+| **No FVF-era branding** — "Family Ventures Framework," "[Qualifier] Family Ventures." Superseded by Kinvergence, 2026-08 | — |
+| **De-instance as you go** — framework-level description (what a Heartbeat or Demo Day *is*, in the abstract) belongs in `kinvergence-core/docs/practices/`, not restated here. This site states SFV's own instance facts and links out for the abstraction | Same convention as both orgs' profile READMEs |
+| **Mission statement is load-bearing, not decorative** — the provisional line in the Mission strip must stay word-for-word in sync with `commons/docs/charter.md` § Mission and `commons/docs/mission-development.md`'s "Provisional Selection" entry | — |
 
-Both mockups use `[Qualifier] Family Ventures` as a placeholder name throughout (matching the bracket notation already used in the 2026-05-04 DSL/vision materials) — no name has been chosen. What moved to the Framework mockup vs. stayed SFV-specific:
+## Checked facts
 
-- **Moved (generic):** the "isolated → inspired" narrative arc, "How It Works" practices, and the four Values — all read as reusable as-is, which is itself a useful Demo Day observation: most of the site's substance is *already* framework-level content, not SFV-specific.
-- **Stayed SFV-specific:** the specific 5-year/260-sync/60-demo stats, and the four members' Ventures cards — these belong to the instance, not the framework. The mockup surfaces them as a single "Scherer-Frailey Ventures" example-instance card instead.
+Verified against SFV's own archives. The reconstruction, with an evidence grade on every row, is
+[`sfv-timeline.md`](https://github.com/scherer-frailey-ventures/commons/blob/main/docs/sfv-timeline.md).
 
-This is still just a UI exercise — no actual separate website, repo, or org. If the group wants to pursue it further, the next real steps are the ones already listed above (naming, GitHub org, template repos, Discord).
+| Claim | Status |
+|---|---|
+| Founded **September 11, 2020** | Verified |
+| Standing Monday meeting proposed **2022-05**; name "Heartbeat" first used **2022-06-06** | Verified |
+| Demo Day proposed 2022-06-27 for 2022-08-01; **first actually held 2022-08-08** (postponed, Derek was sick) | Verified |
+| "Almost every week since August 2022" | Verified — 163 of 212 weeks, six short gaps (≤3 weeks) in four years |
+| Demo Day — "unbroken monthly record since October 2023" | Verified — complete thread ledger from Oct 2023 |
+| Four 2026-03 member purpose quotes (Julia, Ed, Derek, Jason) | Verified against each member's own `commons/docs/member-profiles/` material, word-for-word |
+| Derek's business-card one-liner, "I venture into the chaos..." | Verified — `member-profiles/derek-scherer/2026-02-28-sfv-profile-material.md`, "Business Card Version" |
+| Ed's and Jason's one-liners | Verified against their own profile material; corrected two small misquotes inherited from the archived drafts (Ed: "find it!" not "find it."; Jason: "into the party" not "to the party") |
+| Derek's "making a way for people to emulate what we do" | Verified — Feb 2026, quoted in `commons/docs/2026-03-02-demo-day-sfv-report.md` and the SFV introduction/vision presentation |
 
-#### Re-voicing the SFV drafts as "our instance," now that the Framework is factored out (2026-07-09)
+**If a new claim needs a number, check it against the timeline first, and prefer a dated event.**
 
-Once the Framework has its own mockups, the SFV site no longer needs to carry the "this could work for your family too" pitch — that job now belongs to `family-ventures-framework-1.html` / `-2.html`. Leaving the old pitch copy in place on the SFV side would duplicate (and eventually contradict) what the Framework mockups say. `index1.html`, `index2.html`, and `index3.html` were re-voiced accordingly:
+## Brand
 
-| Element | Before | After |
-|---|---|---|
-| Hero `h1` | "Your Family Could Be Your Greatest Team" | "Our Family Is Our Greatest Team" |
-| Hero subtitle | "...an unstoppable support network—**and how you can do it too**." | "Since 2020, formalized collaboration has turned four independent entrepreneurs into an unstoppable support network." |
-| Meta `description` | "...Discover how formalized family collaboration can empower **your** ventures." | "Scherer-Frailey Ventures — our family's entrepreneurship collaborative, fostering innovation, accountability, and mutual support since 2020." |
-| Founding paragraph | "...a family entrepreneurship collaborative. **A framework** where individual ventures thrive..." | "...a family entrepreneurship collaborative — **our own operating rhythm**, where individual ventures thrive..." |
-| How It Works badge | "⚙️ The Framework" | "⚙️ How We Operate" |
+**Provisional, low-quality placeholder.** The mark is `assets/emblem/sfv-growth-emblem-v1.png` — a
+static copy of `commons`' master file
+([`assets/identity/emblem/master/`](https://github.com/scherer-frailey-ventures/commons/tree/main/assets/identity/emblem/master)),
+itself just the old org avatar renamed, not a purpose-built mark. **No SVG master exists yet** —
+unlike Kinvergence's tri-spiral-blades mark — and the PNG has no alpha channel (opaque white
+background baked in), which constrains where it can be placed; see below.
 
-That last pair of changes fixes a term collision spotted during this pass: the page used lowercase "framework" generically (SFV's own operating model) in two places, while "Framework" now also names the separated artifact. Reserving capital-F "Framework" for the one thing it names avoids Demo Day confusion.
+**Referenced, not inlined** — from the nav brand and the favicon (`favicon.ico` plus
+`assets/apple-touch-icon.png`, both copies of files already built by `commons`' own generator
+script in
+[`assets/identity/emblem/generated/`](https://github.com/scherer-frailey-ventures/commons/tree/main/assets/identity/emblem/generated)).
+There is no build step here — if the master changes, re-copy the files by hand.
 
-These five changes were applied to **all three drafts** (`index1`/`index2`/`index3`) since they don't depend on the Framework section existing. Two further changes were **`index3.html`-only**, since only that draft has introduced the Framework concept:
+**Deliberately not on the hero.** The hero background is the purple/blue gradient
+(`--gradient-1`); the emblem's opaque white backdrop would show as a visible box on top of it. Nav
+placement works because the nav background is near-white (`rgba(255,255,255,0.95)`), so the
+emblem's own white backdrop blends in. Revisit hero placement once a transparent or vector master
+exists.
 
-- **Bottom CTA reworked** from "✨ You Can Build This Too" (a direct replication pitch — now redundant with the Framework mockups' own "Get Started" CTA) to "✨ This Works. See the Framework Behind It." — a hand-off, with its primary button now linking to `family-ventures-framework-1.html` instead of restating the pitch.
-- **"A Bigger Idea" section tightened** and given explicit "Preview a separated Framework site →" / "mockup 1 · mockup 2" links, so a Demo Day viewer can click straight from the nod into the concrete mockups instead of just reading about them.
+## Open Graph preview
 
-**Deliberately left unchanged:** the live `index.html` — same reasoning as everywhere else in this section: it's real production copy, and this re-voicing should go live only after SFV members have actually discussed and approved the framework/instance split. Until then, `index.html` keeps the original all-purpose copy and the three drafts carry the proposed new voice for review.
+Added 2026-10-02. One `assets/og-image.png` (1200×630, the OG standard ratio) backs the single
+page. **Design:** pure white (`#FFFFFF`) background — chosen specifically so the emblem's own
+opaque white backdrop disappears into the canvas instead of rendering as a box — with the emblem
+centered above the "Scherer-Frailey Ventures" wordmark (`--text-dark`, Segoe UI Bold), both
+centered on both axes, same vertically-stacked lockup convention as Kinvergence's (survives a
+square center-crop, not just the 1.91:1 ratio Facebook/LinkedIn render directly). No tagline baked
+in — `og:title`/`og:description` carry that as real text.
 
-#### Mobile navigation fix (2026-07-09)
+**Tags:** `og:type`, `og:site_name`, `og:url`, `og:title`, `og:description`, `og:image` (plus
+`width`/`height`/`alt`), `twitter:card=summary_large_image`, `twitter:title`,
+`twitter:description`, `twitter:image`, and `<link rel="canonical">`.
 
-A journey-fitness review against `online-presence-user-journeys.md` (Actor 1 — Julia Referral, and Actor 7 — SFV-curious Stranger) surfaced a real bug, not just a draft-copy question: **there was no mobile navigation menu anywhere on the site** — the nav links were simply `display: none` below 768px with no replacement. This matters specifically for these two journeys because their entry point is a QR code scan, which is almost always a phone; with Ventures now five sections down the page, a mobile visitor whose "primary interest is Ed rather than SFV" had no way to jump there without a long scroll.
+### Regenerating `assets/og-image.png`
 
-Fixed in `index1.html`, `index2.html`, and `index3.html`: a small hamburger toggle button appears in the nav bar below 768px, opening a full-width dropdown of the same nav links (closes automatically on link tap). This predates all of this session's copy changes — it was a pre-existing gap in the live site too — so it's **not yet applied to `index.html`**, consistent with holding all drafted changes for group review. The same gap likely exists on `family-ventures-framework-1.html` / `-2.html` as well (not yet fixed there — flagging for a follow-up pass if those mockups get taken further).
+Only needed if the master emblem changes. Requires ImageMagick (`magick`) and the `Segoe UI Bold`
+font (ships with Windows; swap the `-font` value on another OS).
 
-#### Mobile nav follow-up: menu was invisible on real phones, and never reached the Framework mockups (2026-07-10)
+**Gotcha:** a plain `xc:"#FFFFFF"` canvas is all gray-valued pixels (R=G=B), so ImageMagick's PNG
+writer auto-optimizes it to an actual grayscale PNG on write — and compositing a color mark onto
+that canvas then flattens the mark's own color to grayscale too, not just the canvas. Every write
+below passes `-define png:color-type=2` to force real RGB (truecolor) storage and avoid this.
 
-A phone re-test of the 2026-07-09 fix above found the hamburger menu wasn't showing up at all — assessment found two distinct problems, both now fixed:
+```powershell
+$emblem = "assets\emblem\sfv-growth-emblem-v1.png"
+$out    = "assets\og-image.png"
+$work   = Join-Path $env:TEMP "sfv-og"
+New-Item -ItemType Directory -Force -Path $work | Out-Null
 
-1. **`index1.html` / `index2.html` / `index3.html`: the menu was implemented correctly but hidden behind the draft banner.** The draft banner and the nav are both `position: fixed`, with the nav hard-coded to sit at `top: 36px` (and `body` given a matching `padding-top: 36px`) — an assumption that the banner renders as one line. On real phone widths the banner's six-link list wraps to two or three lines and grows well past 36px tall, but the banner's `z-index` (1100) is higher than the nav's (1000), so the taller banner simply covered the entire nav bar — logo, links, and hamburger button — leaving nothing visible or clickable underneath it. Confirmed in a simulated 390px-wide viewport: the banner rendered at ~96px tall, completely occluding the nav directly below it.
+$canvasW = 1200; $canvasH = 630
+$markSize = 260; $gap = 28; $fontPointsize = 72
 
-   **Fix:** the banner now has `id="draftBanner"`, and a small inline script measures its real rendered height on load and on resize/orientation-change, writing it to a `--banner-h` CSS custom property. The nav's `top` and the body's `padding-top` both reference `var(--banner-h, 36px)` instead of the hard-coded value, so the nav always sits directly below the banner regardless of how many lines the banner text wraps to.
+magick -size "${canvasW}x${canvasH}" xc:"#FFFFFF" -define png:color-type=2 "$work\base.png"
+magick "$emblem" -resize "${markSize}x${markSize}" -define png:color-type=2 "$work\mark.png"
+magick -background none -fill "#1A202C" -font "Segoe-UI-Bold" -pointsize $fontPointsize label:"Scherer-Frailey Ventures" -trim +repage "$work\word.png"
 
-2. **`family-ventures-framework-1.html` / `family-ventures-framework-2.html`: the menu was never built, exactly as flagged as a follow-up above.** Mobile CSS was just `.nav-links { display: none; }` with no toggle button, no JS, and no `.nav-toggle` styles at all — so below 768px the nav links vanished with nothing to replace them.
+$markInfo = (magick identify -format "%w %h" "$work\mark.png") -split " "
+$wordInfo = (magick identify -format "%w %h" "$work\word.png") -split " "
+$markW = [int]$markInfo[0]; $markH = [int]$markInfo[1]
+$wordW = [int]$wordInfo[0]; $wordH = [int]$wordInfo[1]
 
-   **Fix:** both mockups now carry the same hamburger pattern as the SFV drafts — `.nav-toggle` button styles, a proper mobile dropdown (`.nav-links.open`), the toggle button markup (`#navToggle` / `#navLinks`), the open/close JS, and the same `--banner-h` fix from item 1 above (they share the identical banner/nav markup pattern, so the same overlap bug applied here too, once a menu existed to overlap).
+$totalH = $markH + $gap + $wordH
+$topY   = [math]::Floor(($canvasH - $totalH) / 2)
+$markX  = [math]::Floor(($canvasW - $markW) / 2)
+$wordX  = [math]::Floor(($canvasW - $wordW) / 2)
+$wordY  = $topY + $markH + $gap
 
-Verified all five pages (`index1`, `index2`, `index3`, `family-ventures-framework-1`, `family-ventures-framework-2`) in a simulated 390×844 mobile viewport: banner renders, nav sits immediately below it with no overlap, hamburger button is visible and clickable, and tapping it opens/closes the full link list.
+magick "$work\base.png" "$work\mark.png" -geometry "+$markX+$topY" -composite -define png:color-type=2 "$work\step1.png"
+magick "$work\step1.png" "$work\word.png" -geometry "+$wordX+$wordY" -composite -define png:color-type=2 "$out"
+```
 
----
+Check the result at actual size before committing — font metrics shift slightly between machines, and verify with `magick identify -format "%[png:IHDR.color_type]" $out` that it reads `2 (Truecolor)`, not `0 (Grayscale)`.
 
-### Open Decision: Merging the Drafts into the Live Site
+## Decisions in force
 
-*Recorded here because this file is the shared, easily-updatable place for open SFV site questions — unlike Ed's Personal OS project files, which only he maintains.*
+| Element | Decision |
+|---|---|
+| **Draft pile** | `index1a.html`, `index3.html`, `family-ventures-framework-2.html` archived (not merged, not deleted) 2026-10-02 — each still carried a "Family Ventures Framework" section (now Kinvergence's content) plus the unverified cumulative stats. See `../archive/README.md` |
+| **Values** | Deliberately absent from the site. Real candidates exist (`commons/docs/values-development.md`) but are unselected — publishing any of them now would overstate where that work actually stands |
+| **Vision.md content** | `commons/docs/vision.md` is an unreviewed proposal to the other three partners (status: proposal, dated 2026-08-29). Its Mission line is already in force here (independently corroborated, pre-dates Kinvergence). Its "What we refuse to become" / "What we do not know" sections are genuinely strong, honesty.html-grade material — **held off the site until after partner review**, consistent with the document's own stated purpose |
+| **Palette** | Unchanged gradient/indigo scheme inherited from the original Nov 2025 mockup — a separately-arrived-at scheme with no more authority than Kinvergence's own pre-brand-pass palette had. Not reconciled with Kinvergence's brand assets; a future brand pass could do that, same as Kinvergence's own deferred full brand pass |
+| **Cross-links** | `#kinvergence` section plus footer link to `kinvergence.org`; GitHub org link in the footer and closing CTA |
 
-Everything in the "Draft Exploration" section above (`index1`–`index3`, `family-ventures-framework-1`/`-2`) is proposed, reviewed by Ed, and approved by Ed — but **not yet decided on by the group, and not yet live**. Open questions before any of it ships to `index.html`:
+## Do not reintroduce
 
-- Does the group approve the "our instance" re-voicing and the per-member bio pattern (including each member's own bio text — see the sourcing note above, especially Jason's)?
-- Does the group want the "A Bigger Idea" Framework/Instance section on the live site at all, and if so, at what level of detail?
-- Who decides when/how the merge into `index.html` happens — one PR reviewed by all four members? A Demo Day live walkthrough followed by a merge? Something else?
-- Does the mobile-nav fix (above) ship independently/sooner, since it's a bug fix rather than a content decision?
+- **A "Core Values" section asserting a settled list.** Values are genuinely unselected — see above.
+- **Cumulative counts** ("5.5+ years," "285+ heartbeats," "65+ Demo Days") — checked and found unreliable; use dated events instead.
+- **Generic placeholder cadence names** ("Weekly Sync," "Monthly Demonstration," "Skill Stack Sharing") — these were never SFV's actual practice names.
+- **Emoji**, anywhere, as icon or decoration.
+- **FVF-era branding** or a dedicated "Family Ventures Framework" section — that content now belongs to Kinvergence.
+- **Invented job-title subtitles** under member names ("Entrepreneur & Innovator," etc.) — speculative, not sourced; dropped 2026-10-02 in favor of each member's own real one-liner.
 
-No answers assumed here — just flagging that this decision hasn't been made yet, so it doesn't get lost between now and Demo Day.
+## History
 
-#### Fixed: SFV-specific leakage into the Framework mockups' "Get Started" CTA (2026-07-09)
+Dated history of the site — what changed, why, and decisions reached — lives in
+[`CHANGELOG.md`](../CHANGELOG.md), not here. The July 2026 draft-exploration pass (`index1`–`index3`,
+the Framework mockups) and their 2026-08-28/2026-10-02 retirement are recorded there.
 
-A review of the two Framework mockups against their own premise ("this is the Framework, not the SFV instance") found that the "Start Your Own [Qualifier] Family Ventures" section had leaked SFV-specific content into what should be a neutral call to action:
-
-| Element | Before (leaked) | After |
-|---|---|---|
-| Primary button | "Visit Scherer-Frailey Ventures" → `index.html` | An inert, visually-disabled "[Qualifier] Family Ventures GitHub Organization *(coming soon)*" — honest that the framework org doesn't exist yet, instead of substituting SFV's real org as a stand-in |
-| Secondary button | "SFV GitHub Organization" → `github.com/scherer-frailey-ventures` | "See an Existing Instance" → scrolls to the `#instances` section already on the same page, where the real SFV link correctly lives as the labeled example |
-| Meta `description` | "...distilled from Scherer-Frailey Ventures..." | "...distilled from one family's experience..." — kept the SEO-only description consistent with the page's own generic voice |
-
-Audited the rest of both mockups for the same pattern — nothing else found. The Instances section's SFV card, the stats within it, and the draft-banner nav links are all intentional (the first two are the labeled example; the banner is scaffolding, not page content). The footer's "Mockup Note" pointing at the `scherer-frailey-ventures.github.io` repo was left as-is — it's honestly disclosing where the mockup file currently lives, not presenting SFV as part of the Framework's own content.
-
-#### Nav/section label: "Ventures" → "Members" (2026-07-09)
-
-Walking a live-fire version of the journey — *"Julia mentioned one of the members; I want to find them"* — surfaced a real gap: the nav link and section badge both said **"Ventures"**, a business/project word, when the visitor is scanning for a *person's name*. The `<h2>` heading itself was already correct ("Our Members & Their Ventures"), but that "Members" cue never reached the nav the visitor scans first. This applies to all four members, not just Ed — it's a general SFV site gap, not an Ed-specific one.
-
-Fixed in `index1.html`, `index2.html`, and `index3.html` (`index.html` untouched, same as everywhere else in this doc):
-
-| Element | Before | After |
-|---|---|---|
-| Nav link | "Ventures" | "Members" |
-| Section badge | "🚀 Active Ventures" | "👋 Meet the Members" |
-| Footer Quick Link | "Ventures" | "Members" |
-| (`index3.html` only) Bigger Idea section cross-reference | "...Everything in the **Ventures** section below is us, in action." | "...Everything in the **Members** section below is us, in action." |
-
-The `<h2>Our Members & Their Ventures</h2>` heading and the `#ventures` anchor ID were left unchanged — only the shorter, scanned labels needed the fix; the fuller heading already carried both nouns correctly once a visitor arrives.
-
-#### Open question: does SFV need its own documented user journeys? (2026-07-09)
-
-This gap was found by walking a journey that generalizes Ed's own [Julia Referral journey](https://github.com/ed-scherer/ed-scherer-os/blob/main/docs/reference/online-presence-user-journeys.md) — "someone remembers a member" — beyond Ed specifically to any of the four members. That raises a real question for the group: **is Ed's journey model (extended informally, as it was here) sufficient for SFV's own needs, or does SFV warrant its own documented set of user journeys**, built the same way (actor inventory, journey diagrams, encounter notes) but scoped to all four members and the SFV site itself rather than to one person's presence?
-
-Not decided here — flagging it as a live open question for Demo Day discussion, alongside the merge-timing question above. Arguments either way:
-- **For a dedicated SFV journeys doc:** four members means four "remembers a person" variants, not one; a proper actor inventory might surface gaps like this one before they're found by accident; it would also be something all four members could own and extend, rather than living inside Ed's Personal OS repo
-- **Against, for now:** the pattern found so far (nav label clarity, mobile nav, member-profile substance) generalizes cleanly from Ed's existing model without a full separate document; a dedicated SFV journeys effort is itself a scoped piece of work that competes with other Demo Day priorities
-
-A lightweight starting point exists at `member-journey-mapping-exercise.md` (adjacent to this file) — a disposable 20-minute worksheet for each member to self-walk their own "someone remembers me" journey, rather than committing to a full journeys document up front. Delete it if the idea goes nowhere.
-
-#### Redistributing content recovered from `index1a.html` (2026-07-10)
-
-A git conflict (see the entry above on `index1a.html`) surfaced better copy from the unpulled March 2026 prototype than what these July drafts started from. Rather than adopt that prototype wholesale — it baked the Framework pitch directly into the SFV site, a direction superseded by the May 4 Demo Day split — its improvements were distributed piece by piece:
-
-| Content | Landed in | Notes |
-|---|---|---|
-| New "Our Mission" section (Julia / Charter / Derek candidate mission statements) | `index1.html`, `index2.html`, `index3.html` | New nav link + section; SFV-specific, not generic, so not added to the Framework mockups |
-| Improved Story prose + Derek's pull-quote | `index1.html`, `index2.html`, `index3.html` | The prototype's closing "living proof / adopt, adapt" pitch paragraph was **not** ported — redundant with the Framework mockups' own CTA |
-| Refined "How It Works" pillars (Weekly Heartbeats / Monthly Demo Days / Shared Tools & Transparency / Identity & Purpose Work, replacing Skill Sharing) | All five files | SFV versions keep a self-referential "us/our" voice without asserting the "Family Ventures" brand name; Framework versions use the brand name and third person |
-| Updated stats (5.5+ years / 285+ Heartbeats / 65+ Demo Days / 4 Ventures) + refreshed impact cards | `index1.html`, `index2.html`, `index3.html` | Also updated the Instances-section citation of these same numbers in both Framework mockups |
-| Improved Values copy (Family as Foundation / Integrity & Transparency / Mutual Support & Flourishing / Purpose-Driven Growth) | All five files | Framework versions re-voiced to third person ("members," "a family") since no single family is speaking there |
-| Richer, identity-driven member bios + one-line quotes | `index1.html`, `index2.html`, `index3.html` | Kept **both** bio styles side by side — `[draft option 1]` (today's public-site-sourced bios) and `[draft option 2]` (the prototype's identity/MTP-driven bios) — since each member should pick their own preferred version at review rather than have one chosen for them. The prototype's quote line was added above both options in each card. |
-| Founding date specificity ("September 2020") | Footer copyright line in `index1.html`, `index2.html`, `index3.html`; "running since" line in both Framework mockups | Confirmed accurate, not just inherited from the prototype |
-
-`index1.html` / `index2.html` CTAs were deliberately left untouched (still the pre-Framework-split copy) — that's intentional, showing the state of affairs before the Framework was factored out; only `index3.html` has the reworked hand-off CTA.
-
----
-
-### Draft cleanup: `index1.html`, `index2.html`, `family-ventures-framework-1.html` retired (2026-08-28)
-
-Part of the broader SFV repositioning following the Kinvergence separation
-(`ed-scherer-runtime/areas/work-and-business/projects/advance-sfv-2.md`). All three files' content
-was already fully accounted for elsewhere before deletion:
-
-- **`index1.html` and `index2.html`** were superseded in-place by `index3.html`, which carries
-  every improvement from both (per the tables above) plus the Framework/Instance section neither
-  earlier draft had. Nothing in either file existed that `index3.html` doesn't already have.
-- **`family-ventures-framework-1.html`** was one of two visually-identical mockups
-  (`-1.html`/`-2.html`, differing only in color palette — purple/pink vs. teal/emerald). Its content
-  was already fully documented above (§ Going a level deeper) and its actual replacement already
-  exists and shipped: the real Kinvergence invitation site at
-  [kinvergence.github.io](https://github.com/kinvergence/kinvergence.github.io), whose own
-  `DEVELOPMENT.md` explicitly documents what it took from this mockup's structural skeleton and
-  why most of the mockup's *content* (a "Core Values" section, four "pillars," the "[Qualifier]
-  Family Ventures" placeholder name, the teal palette) was deliberately **not** carried forward —
-  see that file's § Do not reintroduce.
-
-`index3.html` and `family-ventures-framework-2.html` had their internal links (draft banners, the
-"Preview a separated Framework site" card, and the closing CTA) repointed to the files that
-survive, since both previously linked to the three retired files.
-
----
-
-*Last Updated: 2026-07-10 (redistributed improved content recovered from the unpulled `index1a.html` prototype across the three SFV drafts and two Framework mockups — see table above)*

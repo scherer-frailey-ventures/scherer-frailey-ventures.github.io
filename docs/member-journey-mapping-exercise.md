@@ -1,6 +1,6 @@
 # SFV Member Journey Mapping — A 20-Minute Exercise
 
-*Optional, disposable worksheet. If this doesn't go anywhere, delete the file — nothing else depends on it. See `DEVELOPMENT.md` → "Open question: does SFV need its own documented user journeys?" for the context this came from.*
+*Optional, disposable worksheet. If this doesn't go anywhere, delete the file — nothing else depends on it. See `../CHANGELOG.md` → "Open question raised: does SFV need its own documented user journeys?" (2026-07-09 entry) for the context this came from.*
 
 ## What this is
 
