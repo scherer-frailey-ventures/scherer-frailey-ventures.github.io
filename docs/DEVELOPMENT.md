@@ -2,7 +2,7 @@
 title: "Development"
 description: "Working notes for the SFV website — current-state only: structure, hard constraints, checked facts, decisions in force, do-not-reintroduce list"
 date_created: "2025-11-03"
-last_updated: "2026-10-02"
+last_updated: "2026-10-03"
 maintenance_instructions: |
   Repo-local build detail only — current-state, not narrative. Project-level tracking (task list,
   session-by-session progress) lives in `advance-sfv-2.md` (ed-scherer-runtime, Ed's personal

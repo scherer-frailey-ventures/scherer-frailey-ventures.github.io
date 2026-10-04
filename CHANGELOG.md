@@ -13,6 +13,22 @@ maintenance_instructions: |
 Dated history of the site — what changed, why, and decisions reached. `docs/DEVELOPMENT.md` stays
 current-state only; this file is where its history lands.
 
+## 2026-10-03 — Shared `assets/` folder, favicon, Open Graph preview, nav emblem
+
+Added `assets/` (`emblem/`, `apple-touch-icon.png`, `og-image.png`) and a root `favicon.ico`,
+mirroring `kinvergence.github.io`'s pattern. The emblem is `sfv-growth-emblem-v1.png` — a copy of
+`commons`' newly-scaffolded `assets/identity/emblem/master/`, itself just the old org avatar
+renamed as a placeholder master (no SVG exists yet; Ed expects to likely replace it entirely
+later). Added full OG/Twitter preview tags plus `<link rel="canonical">`, and the emblem to the nav
+bar. Deliberately left off the hero — the master PNG has no alpha channel (opaque white backdrop
+baked in), which would show as a visible box on the hero's gradient background; nav works because
+its background is already near-white.
+
+`og-image.png` (1200×630, emblem stacked above the wordmark on a white canvas) first came out
+grayscale — an ImageMagick quirk where a pure-white `xc:` canvas gets auto-written as a true
+grayscale PNG, which then flattens any composited color to grayscale too. Fixed with
+`-define png:color-type=2` on every write step; documented in `docs/DEVELOPMENT.md` as a gotcha.
+
 ## 2026-10-02 — The "merge the drafts" question was never answered; events overtook it
 
 The 2026-07-09 "Open Decision: Merging the Drafts into the Live Site" entry below was still open as
