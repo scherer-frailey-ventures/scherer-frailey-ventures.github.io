@@ -21,7 +21,8 @@ Working notes for the site. Read this before changing copy.
 
 One page, no build step: `index.html`. Styles and script are inlined — unlike `kinvergence.github.io`,
 this site has never been split into multiple pages. A shared `assets/` folder was added 2026-10-02
-(favicon, apple-touch-icon, emblem, OG image only — page styling stays inlined). Sections, in
+(favicon, apple-touch-icon, emblem, OG image) and extended 2026-10-06 with `hero/`, `members/`, and
+`sites/` (photos and link previews — see § Photos and link previews); page styling stays inlined. Sections, in
 order: Hero → Mission → Story (including "Why It Holds," the four members' 2026-03 purpose quotes)
 → How We Work (the three Kinvergence practices) → The Shape Of It (dated-fact stats) → Kinvergence
 (relationship + cross-link) → Members (ventures + business-card one-liners) → closing CTA → footer.
@@ -84,6 +85,25 @@ There is no build step here — if the master changes, re-copy the files by hand
 placement works because the nav background is near-white (`rgba(255,255,255,0.95)`), so the
 emblem's own white backdrop blends in. Revisit hero placement once a transparent or vector master
 exists.
+
+## Photos and link previews
+
+Added 2026-10-06. All are resized copies; originals live in `commons/assets/`. No build step — redo
+by hand (ImageMagick) if a source changes.
+
+- **Hero group photo** — `assets/hero/sfv-group-2026-10-06.jpg` (2000px wide), from
+  `commons/assets/group-portraits/20261006-152911-EJS-154202400012_2.jpg`. Sits *below* the hero
+  copy rather than behind it: the faces are in the top third of the frame and any text overlay
+  would land on them. Alt text and caption name the people left to right (Jason, Derek, Julia, Ed).
+- **Member portraits** — `assets/members/{name}.jpg`, 480×480 crops (top 75% of the portrait,
+  anchored north so heads aren't cut off by the circular mask) from the **most recent** file per
+  member in `commons/assets/member-portraits/` (for Ed, the 2026-10-06 shot, not the 2020 one).
+- **Site previews** — `assets/sites/*`, 256×144, shown 96×54 beside each link. Self-hosted copies of
+  each site's own Open Graph/banner image (cropped toward the subject where needed) rather than
+  hotlinks, so they survive the source site changing. Exceptions: Protizmo uses its own wordmark
+  SVG (the site has no photo/banner), and Twitch uses an inline purple-tile glyph (Twitch's
+  public `og:image` is only its generic logo). These are the members' own sites; if one rebrands,
+  refresh its thumbnail.
 
 ## Open Graph preview
 

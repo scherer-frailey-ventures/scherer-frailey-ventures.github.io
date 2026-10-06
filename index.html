@@ -176,6 +176,26 @@
             animation: fadeInUp 1s ease;
         }
 
+        .hero-photo {
+            margin: 3.5rem auto 0;
+            max-width: 960px;
+        }
+
+        .hero-photo img {
+            display: block;
+            width: 100%;
+            height: auto;
+            border-radius: 20px;
+            border: 4px solid rgba(255, 255, 255, 0.35);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .hero-photo figcaption {
+            margin-top: 0.75rem;
+            font-size: 0.875rem;
+            opacity: 0.85;
+        }
+
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -476,9 +496,22 @@
         }
 
         .venture-header {
-            padding: 2rem;
+            padding: 2rem 2rem 1.5rem;
             background: var(--gradient-1);
             color: white;
+            text-align: center;
+        }
+
+        .venture-portrait {
+            display: block;
+            width: 140px;
+            height: 140px;
+            margin: 0 auto 1rem;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid white;
+            box-shadow: var(--shadow-lg);
+            background: white;
         }
 
         .venture-name {
@@ -517,6 +550,35 @@
         .venture-link:hover {
             background: var(--bg-light);
             gap: 1rem;
+        }
+
+        .venture-link-thumb {
+            flex: none;
+            width: 96px;
+            height: 54px;
+            border-radius: 6px;
+            object-fit: cover;
+            border: 1px solid var(--border);
+            background: white;
+        }
+
+        .venture-link-thumb.contain {
+            object-fit: contain;
+            padding: 6px 8px;
+        }
+
+        .venture-link-thumb.twitch {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #9146ff;
+            border-color: #9146ff;
+        }
+
+        .venture-link-thumb.twitch svg {
+            width: 28px;
+            height: 28px;
+            fill: white;
         }
 
         .venture-link-icon {
@@ -686,6 +748,11 @@
                 <a href="#story" class="btn btn-primary">Read our story</a>
                 <a href="https://kinvergence.org" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">What is Kinvergence?</a>
             </div>
+            <figure class="hero-photo">
+                <img src="assets/hero/sfv-group-2026-10-06.jpg" width="2000" height="820"
+                     alt="Jason Frailey, Derek Scherer, Julia Scherer, and Ed Scherer standing together outdoors, smiling.">
+                <figcaption>Jason, Derek, Julia, and Ed — October 2026</figcaption>
+            </figure>
         </div>
     </section>
 
@@ -897,9 +964,10 @@
                     Four independent ventures, each run by one member
                 </p>
             </div>
-            <div class="grid-2">
+            <div class="grid-2" style="grid-template-columns: repeat(auto-fit, minmax(min(100%, 360px), 1fr)); max-width: 960px; margin: 0 auto;">
                 <div class="venture-card animate-on-scroll">
                     <div class="venture-header" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                        <img class="venture-portrait" src="assets/members/derek-scherer.jpg" width="140" height="140" alt="Portrait of Derek Scherer" loading="lazy">
                         <div class="venture-name">Derek Scherer</div>
                     </div>
                     <div class="venture-body">
@@ -908,9 +976,11 @@
                         </p>
                         <div class="venture-links">
                             <a href="https://www.derekscherer.com/" target="_blank" rel="noopener noreferrer" class="venture-link">
+                                <img class="venture-link-thumb" src="assets/sites/derekscherer-com.jpg" width="96" height="54" alt="" loading="lazy">
                                 <span>derekscherer.com</span>
                             </a>
                             <a href="https://cognichine.com/" target="_blank" rel="noopener noreferrer" class="venture-link">
+                                <img class="venture-link-thumb" src="assets/sites/cognichine-com.jpg" width="96" height="54" alt="" loading="lazy">
                                 <span>Cognichine</span>
                             </a>
                         </div>
@@ -919,6 +989,7 @@
 
                 <div class="venture-card animate-on-scroll">
                     <div class="venture-header" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                        <img class="venture-portrait" src="assets/members/julia-scherer.jpg" width="140" height="140" alt="Portrait of Julia Scherer" loading="lazy">
                         <div class="venture-name">Julia Scherer</div>
                     </div>
                     <div class="venture-body">
@@ -928,6 +999,7 @@
                         </p>
                         <div class="venture-links">
                             <a href="https://juliascherer.com/" target="_blank" rel="noopener noreferrer" class="venture-link">
+                                <img class="venture-link-thumb" src="assets/sites/juliascherer-com.jpg" width="96" height="54" alt="" loading="lazy">
                                 <span>juliascherer.com</span>
                             </a>
                         </div>
@@ -936,6 +1008,7 @@
 
                 <div class="venture-card animate-on-scroll">
                     <div class="venture-header" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                        <img class="venture-portrait" src="assets/members/ed-scherer.jpg" width="140" height="140" alt="Portrait of Ed Scherer" loading="lazy">
                         <div class="venture-name">Ed Scherer</div>
                     </div>
                     <div class="venture-body">
@@ -944,9 +1017,11 @@
                         </p>
                         <div class="venture-links">
                             <a href="https://www.ed-scherer.me" target="_blank" rel="noopener noreferrer" class="venture-link">
+                                <img class="venture-link-thumb" src="assets/sites/ed-scherer-me.jpg" width="96" height="54" alt="" loading="lazy">
                                 <span>ed-scherer.me</span>
                             </a>
                             <a href="https://www.protizmo.com/" target="_blank" rel="noopener noreferrer" class="venture-link">
+                                <img class="venture-link-thumb contain" src="assets/sites/protizmo-com.svg" width="96" height="54" alt="" loading="lazy">
                                 <span>Protizmo</span>
                             </a>
                         </div>
@@ -955,6 +1030,7 @@
 
                 <div class="venture-card animate-on-scroll">
                     <div class="venture-header" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">
+                        <img class="venture-portrait" src="assets/members/jason-frailey.jpg" width="140" height="140" alt="Portrait of Jason Frailey" loading="lazy">
                         <div class="venture-name">Jason Frailey</div>
                     </div>
                     <div class="venture-body">
@@ -963,9 +1039,13 @@
                         </p>
                         <div class="venture-links">
                             <a href="https://www.jasonfrailey.com/" target="_blank" rel="noopener noreferrer" class="venture-link">
+                                <img class="venture-link-thumb" src="assets/sites/jasonfrailey-com.jpg" width="96" height="54" alt="" loading="lazy">
                                 <span>jasonfrailey.com</span>
                             </a>
                             <a href="https://www.twitch.tv/jasonfrailey" target="_blank" rel="noopener noreferrer" class="venture-link">
+                                <span class="venture-link-thumb twitch" aria-hidden="true">
+                                    <svg viewBox="0 0 24 24"><path d="M11.64 5.93h1.43v4.28h-1.43m3.93-4.28H17v4.28h-1.43M7 2L3.43 5.57v12.86h4.28V22l3.58-3.57h2.85L20.57 12V2m-1.43 9.29l-2.85 2.85h-2.86l-2.5 2.5v-2.5H7.71V3.43h11.43z"/></svg>
+                                </span>
                                 <span>Twitch Channel</span>
                             </a>
                         </div>

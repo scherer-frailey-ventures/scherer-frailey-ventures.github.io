@@ -13,6 +13,15 @@ maintenance_instructions: |
 Dated history of the site — what changed, why, and decisions reached. `docs/DEVELOPMENT.md` stays
 current-state only; this file is where its history lands.
 
+## 2026-10-06 — Hero group photo, member portraits, link previews
+
+Added the 2026-10-06 group portrait to the hero (below the copy, framed, not as a background —
+the faces sit in the top third and text would cover them), a circular portrait above each member's
+name in the Members cards (most recent photo per member), and a 96×54 preview thumbnail beside
+each "sites of significance" link (each site's own OG/banner image, self-hosted; Protizmo's
+wordmark SVG; an inline glyph tile for Twitch). Members grid constrained to two columns so four
+cards read as 2×2 instead of 3+1. Details in `docs/DEVELOPMENT.md` § Photos and link previews.
+
 ## 2026-10-03 — Shared `assets/` folder, favicon, Open Graph preview, nav emblem
 
 Added `assets/` (`emblem/`, `apple-touch-icon.png`, `og-image.png`) and a root `favicon.ico`,
